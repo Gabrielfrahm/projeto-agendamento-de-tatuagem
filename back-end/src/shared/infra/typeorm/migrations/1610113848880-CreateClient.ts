@@ -4,7 +4,7 @@ export default class CreateClient1610113848880 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'customer',
+        name: 'customers',
         columns: [
           {
             name: 'id',

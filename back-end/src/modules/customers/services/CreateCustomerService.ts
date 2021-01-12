@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
-import Provider from '@modules/providers/infra/typeorm/entities/Provider';
+import Customer from '@modules/customers/infra/typeorm/entities/Customer';
 import IHashPasswordProvider from '@shared/container/providers/HashPasswordProvider/models/IHashPasswordProvider';
-import IProviderRepository from '../repositories/IProviderRepository';
+import ICustomerRepository from '../repositories/ICustomerRepository';
 
 interface IRequestDTO {
   name: string;
@@ -12,8 +12,8 @@ interface IRequestDTO {
 @injectable()
 class CreateProviderService {
   constructor(
-    @inject('ProviderRepository')
-    private providerRepository: IProviderRepository,
+    @inject('CustomerRepository')
+    private customerRepository: ICustomerRepository,
 
     @inject('HashPasswordProvider')
     private hashPasswordProvider: IHashPasswordProvider,
@@ -23,22 +23,22 @@ class CreateProviderService {
     name,
     email,
     password,
-  }: IRequestDTO): Promise<Provider> {
-    const checkProviderExist = await this.providerRepository.findByEmail(email);
+  }: IRequestDTO): Promise<Customer> {
+    const checkCustomerExist = await this.customerRepository.findByEmail(email);
 
-    if (checkProviderExist) {
+    if (checkCustomerExist) {
       throw new Error('Email already used');
     }
 
     const hashPassword = await this.hashPasswordProvider.generateHash(password);
 
-    const provider = await this.providerRepository.create({
+    const customer = await this.customerRepository.create({
       name,
       email,
       password: hashPassword,
     });
 
-    return provider;
+    return customer;
   }
 }
 
