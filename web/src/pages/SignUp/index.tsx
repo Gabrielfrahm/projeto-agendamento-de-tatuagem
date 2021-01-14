@@ -3,7 +3,7 @@ import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
-import { FiLock, FiMail, FiArrowLeft } from 'react-icons/fi';
+import { FiLock, FiMail, FiArrowLeft, FiUser, FiPhone } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -27,9 +27,8 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
-      <Link to="/">
-        <FiArrowLeft color="#fff" size={35} />
-      </Link>
+      <BackgroundIMG />
+
       <Content>
         <AnimationContainer>
           <h1>Faça seu login</h1>
@@ -39,6 +38,8 @@ const SignIn: React.FC = () => {
           </ButtonContainer>
 
           <Form ref={formRef} onSubmit={handleSubmit}>
+            <Input type="name" name="name" icon={FiUser} placeholder="Nome" />
+
             <Input
               type="email"
               name="email"
@@ -53,14 +54,16 @@ const SignIn: React.FC = () => {
               placeholder="Senha"
             />
 
-            <Button type="button">Entrar</Button>
+            <Input name="number" icon={FiPhone} placeholder="Numero" />
 
-            <Link to="/forgot-password">Esqueceu a senha?</Link>
+            <Button type="button">Cadastrar</Button>
           </Form>
-          <Link to="/signup">Não tem uma conta?</Link>
+          <Link to="/signin">
+            <FiArrowLeft color="#fff" size={20} />
+            voltar
+          </Link>
         </AnimationContainer>
       </Content>
-      <BackgroundIMG />
     </Container>
   );
 };

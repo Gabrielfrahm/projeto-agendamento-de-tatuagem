@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
-import signInBackgroundImg from '../../assets/signIn.webp';
+import signInBackgroundImg from '../../assets/signup.webp';
 
 export const Container = styled.div`
   height: 100vh;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 const appearFromLeft = keyframes`
   from {
     opacity: 0;
-    transform: translateX(-75px);
+    transform: translateX(+75px);
   }
   to {
     opacity: 1;

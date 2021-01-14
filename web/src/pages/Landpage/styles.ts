@@ -90,7 +90,7 @@ export const VideoText = styled.div`
 
   h2 {
     font-weight: 300;
-    color: #d9bf73;
+    color: #b34d4b;
     font-size: 30px;
   }
 `;
@@ -151,7 +151,7 @@ export const CardWork = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 10px;
-  background: #454545;
+  background: #666360;
   margin-left: 40px;
   margin-bottom: 45px;
 `;
