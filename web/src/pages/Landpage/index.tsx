@@ -1,5 +1,6 @@
 import React from 'react';
 import { GiVikingChurch } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -24,7 +25,7 @@ const Landpage: React.FC = () => {
       <Header>
         <ul>
           <li>
-            <a href="/">Login</a>
+            <Link to="/signin">Login</Link>
           </li>
 
           <li>

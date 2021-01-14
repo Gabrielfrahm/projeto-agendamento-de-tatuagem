@@ -130,6 +130,7 @@ export const WorkContainer = styled.div`
 `;
 
 export const TitleWork = styled.div`
+  margin-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,14 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import AppProvider from './hooks';
+import Routes from './routes';
+
 import Global from './styles/global';
-import Landpage from './pages/Landpage';
-// import Page from './components/Page';
 
 const App: React.FC = () => {
   return (
-    <>
-      <Landpage />
+    <BrowserRouter>
+      <AppProvider>
+        <Routes />
+      </AppProvider>
       <Global />
-    </>
+    </BrowserRouter>
   );
 };
 
