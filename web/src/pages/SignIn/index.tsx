@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -25,25 +25,56 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
+  const { signInCustomer, signInProvider } = useAuth();
   const formRef = useRef<FormHandles>(null);
-  const { user, signInCustomer } = useAuth();
+  const [isCustomer, setISCustomer] = useState(false);
+  const [isClickedProvider, setIsClickedProvider] = useState(false);
+  const [isClickedCustomer, setIsClickedCustomer] = useState(false);
 
   const history = useHistory();
 
-  const handleSubmit = useCallback(
+  const handleLoginCustomer = useCallback(() => {
+    setISCustomer(true);
+    setIsClickedCustomer(true);
+    setIsClickedProvider(false);
+  }, []);
+
+  const handleLoginProvider = useCallback(() => {
+    setISCustomer(false);
+    setIsClickedProvider(true);
+    setIsClickedCustomer(false);
+  }, []);
+
+  const handleSubmitCustomer = useCallback(
     async (data: SignInFormData) => {
       try {
         await signInCustomer({
           email: data.email,
           password: data.password,
         });
-        console.log(user);
+        console.log('customer');
         history.push('/dashboard');
       } catch (err) {
         console.log(err);
       }
     },
-    [signInCustomer, user, history],
+    [signInCustomer, history],
+  );
+
+  const handleSubmitProvider = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        await signInProvider({
+          email: data.email,
+          password: data.password,
+        });
+        console.log('provider');
+        history.push('/dashboard');
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [signInProvider, history],
   );
 
   return (
@@ -55,11 +86,24 @@ const SignIn: React.FC = () => {
         <AnimationContainer>
           <h1>Faça seu login</h1>
           <ButtonContainer>
-            <ButtonProvider>Sou tatuador</ButtonProvider>
-            <ButtonCustomer>Sou cliente</ButtonCustomer>
+            <ButtonProvider
+              onClick={handleLoginProvider}
+              isClickedProvider={isClickedProvider}
+            >
+              Sou tatuador
+            </ButtonProvider>
+            <ButtonCustomer
+              onClick={handleLoginCustomer}
+              isClickedCustomer={isClickedCustomer}
+            >
+              Sou cliente
+            </ButtonCustomer>
           </ButtonContainer>
 
-          <Form ref={formRef} onSubmit={handleSubmit}>
+          <Form
+            ref={formRef}
+            onSubmit={isCustomer ? handleSubmitCustomer : handleSubmitProvider}
+          >
             <Input
               type="email"
               name="email"

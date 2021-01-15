@@ -1,10 +1,10 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
 import { FiLock, FiMail, FiArrowLeft, FiUser, FiPhone } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import api from '../../services/api';
@@ -26,14 +26,47 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
-  const handleSubmit = useCallback(async (data: SignInFormData) => {
-    try {
-      await api.post('/customers', data);
-    } catch (err) {
-      console.log(err);
-    }
+  const [isCustomer, setIsCustomer] = useState(false);
+  const [isClickedProvider, setIsClickedProvider] = useState(false);
+  const [isClickedCustomer, setIsClickedCustomer] = useState(false);
+
+  const handleLoginCustomer = useCallback(() => {
+    setIsCustomer(true);
+    setIsClickedProvider(false);
+    setIsClickedCustomer(true);
   }, []);
+
+  const handleLoginProvider = useCallback(() => {
+    setIsCustomer(false);
+    setIsClickedProvider(true);
+    setIsClickedCustomer(false);
+  }, []);
+
+  const handleSubmitCustomer = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        await api.post('/customers', data);
+        history.push('/signin');
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [history],
+  );
+
+  const handleSubmitProvider = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        await api.post('/providers', data);
+        history.push('/signin');
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [history],
+  );
 
   return (
     <Container>
@@ -43,11 +76,24 @@ const SignIn: React.FC = () => {
         <AnimationContainer>
           <h1>Faça seu login</h1>
           <ButtonContainer>
-            <ButtonProvider>Sou tatuador</ButtonProvider>
-            <ButtonCustomer>Sou cliente</ButtonCustomer>
+            <ButtonProvider
+              onClick={handleLoginProvider}
+              isClickedProvider={isClickedProvider}
+            >
+              Sou tatuador
+            </ButtonProvider>
+            <ButtonCustomer
+              onClick={handleLoginCustomer}
+              isClickedCustomer={isClickedCustomer}
+            >
+              Sou cliente
+            </ButtonCustomer>
           </ButtonContainer>
 
-          <Form ref={formRef} onSubmit={handleSubmit}>
+          <Form
+            ref={formRef}
+            onSubmit={isCustomer ? handleSubmitCustomer : handleSubmitProvider}
+          >
             <Input type="name" name="name" icon={FiUser} placeholder="Nome" />
 
             <Input

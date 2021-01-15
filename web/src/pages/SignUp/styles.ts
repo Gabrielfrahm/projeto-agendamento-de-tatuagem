@@ -1,6 +1,14 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 import signInBackgroundImg from '../../assets/signup.webp';
+
+interface ButtonProviderProps {
+  isClickedProvider: boolean;
+}
+
+interface ButtonCustomerProps {
+  isClickedCustomer: boolean;
+}
 
 export const Container = styled.div`
   height: 100vh;
@@ -91,7 +99,7 @@ export const ButtonContainer = styled.div`
   margin-top: 18px;
 `;
 
-export const ButtonProvider = styled.button`
+export const ButtonProvider = styled.button<ButtonProviderProps>`
   background: transparent;
   font-weight: 400;
   height: 20px;
@@ -99,12 +107,18 @@ export const ButtonProvider = styled.button`
   font-size: 18px;
   color: #fff;
 
+  ${props =>
+    props.isClickedProvider &&
+    css`
+      color: #c53030;
+    `}
+
   &:hover {
     color: ${shade(0.2, '#fff')};
   }
 `;
 
-export const ButtonCustomer = styled.button`
+export const ButtonCustomer = styled.button<ButtonCustomerProps>`
   margin-left: 55px;
   background: transparent;
   font-weight: 400;
@@ -112,6 +126,12 @@ export const ButtonCustomer = styled.button`
   border: none;
   font-size: 18px;
   color: #fff;
+
+  ${props =>
+    props.isClickedCustomer &&
+    css`
+      color: #c53030;
+    `}
 
   &:hover {
     color: ${shade(0.2, '#fff')};
