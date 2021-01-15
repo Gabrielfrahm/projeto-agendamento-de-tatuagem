@@ -77,7 +77,7 @@ export const AnimationContainer = styled.div`
     margin-top: 10px;
 
     svg {
-      margin-right: 16px;
+      margin-right: 8px;
     }
 
     &:hover {

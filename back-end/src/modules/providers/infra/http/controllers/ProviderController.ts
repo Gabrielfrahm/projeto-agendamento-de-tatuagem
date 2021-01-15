@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 
 export default class ProviderController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, email, password } = request.body;
+    const { name, email, password, phone } = request.body;
 
     const createProvider = container.resolve(CreateProviderService);
 
@@ -12,6 +12,7 @@ export default class ProviderController {
       name,
       email,
       password,
+      phone,
     });
 
     return response.json(provider);

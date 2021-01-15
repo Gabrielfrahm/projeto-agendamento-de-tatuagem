@@ -4,9 +4,10 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
 import { FiLock, FiMail, FiArrowLeft } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import { useAuth } from '../../hooks/Auth';
 
 import {
   Container,
@@ -18,12 +19,32 @@ import {
   ButtonProvider,
 } from './styles';
 
+interface SignInFormData {
+  email: string;
+  password: string;
+}
+
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const { user, signInCustomer } = useAuth();
 
-  const handleSubmit = useCallback(() => {
-    console.log('submit =)');
-  }, []);
+  const history = useHistory();
+
+  const handleSubmit = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        await signInCustomer({
+          email: data.email,
+          password: data.password,
+        });
+        console.log(user);
+        history.push('/dashboard');
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [signInCustomer, user, history],
+  );
 
   return (
     <Container>
@@ -53,7 +74,7 @@ const SignIn: React.FC = () => {
               placeholder="Senha"
             />
 
-            <Button type="button">Entrar</Button>
+            <Button type="submit">Entrar</Button>
 
             <Link to="/forgot-password">Esqueceu a senha?</Link>
           </Form>

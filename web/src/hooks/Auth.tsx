@@ -19,7 +19,8 @@ interface SignInCredentials {
 
 interface AuthContextData {
   user: User;
-  signIn(credentials: SignInCredentials): Promise<void>;
+  signInCustomer(credentials: SignInCredentials): Promise<void>;
+  signInProvider(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
   updateUser(user: User): void;
 }
@@ -29,8 +30,10 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 const AuthProvider: React.FC = ({ children }) => {
   // starta a variável com base no localStorage
   const [data, setData] = useState<AuthState>(() => {
-    const token = localStorage.getItem('@GoBarber:token');
-    const userWithoutPassword = localStorage.getItem('@GoBarber:user');
+    const token = localStorage.getItem('@Agendamento-tatuagem:token');
+    const userWithoutPassword = localStorage.getItem(
+      '@Agendamento-tatuagem:user',
+    );
 
     if (token && userWithoutPassword) {
       api.defaults.headers.authorization = `Bearer ${token}`;
@@ -43,16 +46,38 @@ const AuthProvider: React.FC = ({ children }) => {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }) => {
-    const response = await api.post('sessions', {
+  const signInCustomer = useCallback(async ({ email, password }) => {
+    const response = await api.post('/customers/sessions', {
       email,
       password,
     });
 
     const { token, userWithoutPassword } = response.data;
     console.log(response.data);
-    localStorage.setItem('@GoBarber:token', token);
-    localStorage.setItem('@GoBarber:user', JSON.stringify(userWithoutPassword));
+    localStorage.setItem('@Agendamento-tatuagem:token', token);
+    localStorage.setItem(
+      '@Agendamento-tatuagem:user',
+      JSON.stringify(userWithoutPassword),
+    );
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
+
+    setData({ token, userWithoutPassword });
+  }, []);
+
+  const signInProvider = useCallback(async ({ email, password }) => {
+    const response = await api.post('/customers/sessions', {
+      email,
+      password,
+    });
+
+    const { token, userWithoutPassword } = response.data;
+    console.log(response.data);
+    localStorage.setItem('@Agendamento-tatuagem:token', token);
+    localStorage.setItem(
+      '@Agendamento-tatuagem:user',
+      JSON.stringify(userWithoutPassword),
+    );
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
@@ -60,15 +85,15 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@GoBarber:token');
-    localStorage.removeItem('@GoBarber:user');
+    localStorage.removeItem('@Agendamento-tatuagem:token');
+    localStorage.removeItem('@Agendamento-tatuagem:user');
 
     setData({} as AuthState);
   }, []);
 
   const updateUser = useCallback(
     (user: User) => {
-      localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+      localStorage.setItem('@Agendamento-tatuagem:user', JSON.stringify(user));
       setData({
         token: data.token,
         userWithoutPassword: user,
@@ -79,7 +104,13 @@ const AuthProvider: React.FC = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user: data.userWithoutPassword, signIn, signOut, updateUser }}
+      value={{
+        user: data.userWithoutPassword,
+        signInCustomer,
+        signInProvider,
+        signOut,
+        updateUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

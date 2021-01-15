@@ -32,6 +32,10 @@ export default class CreateClient1610113848880 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'phone',
+            type: 'varchar',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -47,6 +51,6 @@ export default class CreateClient1610113848880 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('customer');
+    await queryRunner.dropTable('customers');
   }
 }

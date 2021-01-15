@@ -26,6 +26,9 @@ class Provider {
   @Column()
   avatar: string;
 
+  @Column()
+  phone: string;
+
   @CreateDateColumn()
   created_at: Date;
 

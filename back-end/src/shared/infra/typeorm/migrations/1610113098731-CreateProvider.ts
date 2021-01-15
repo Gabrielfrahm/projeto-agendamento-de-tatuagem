@@ -33,6 +33,10 @@ export default class CreateProvider1610113098731 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'phone',
+            type: 'varchar',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

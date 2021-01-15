@@ -10,6 +10,7 @@ interface IRequestDTO {
   name: string;
   email: string;
   password: string;
+  phone: string;
 }
 
 @injectable()
@@ -29,6 +30,7 @@ class CreateProviderService {
     name,
     email,
     password,
+    phone,
   }: IRequestDTO): Promise<Provider> {
     const checkProviderExist = await this.providerRepository.findByEmail(email);
 
@@ -44,10 +46,15 @@ class CreateProviderService {
 
     const hashPassword = await this.hashPasswordProvider.generateHash(password);
 
+    if (phone.length < 11 || phone.length >= 12) {
+      throw new AppError('number invalid');
+    }
+
     const provider = await this.providerRepository.create({
       name,
       email,
       password: hashPassword,
+      phone,
     });
 
     return provider;
