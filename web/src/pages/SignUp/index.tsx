@@ -7,6 +7,7 @@ import { FiLock, FiMail, FiArrowLeft, FiUser, FiPhone } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import api from '../../services/api';
 
 import {
   Container,
@@ -18,11 +19,20 @@ import {
   ButtonProvider,
 } from './styles';
 
+interface SignInFormData {
+  email: string;
+  password: string;
+}
+
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(() => {
-    console.log('submit =)');
+  const handleSubmit = useCallback(async (data: SignInFormData) => {
+    try {
+      await api.post('/customers', data);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (
@@ -54,9 +64,9 @@ const SignIn: React.FC = () => {
               placeholder="Senha"
             />
 
-            <Input name="number" icon={FiPhone} placeholder="Numero" />
+            <Input name="phone" icon={FiPhone} placeholder="Numero" />
 
-            <Button type="button">Cadastrar</Button>
+            <Button type="submit">Cadastrar</Button>
           </Form>
           <Link to="/signin">
             <FiArrowLeft color="#fff" size={20} />
