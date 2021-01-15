@@ -2,12 +2,14 @@ import React, { useCallback, useRef, useState } from 'react';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 
 import { FiLock, FiMail, FiArrowLeft, FiUser, FiPhone } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import api from '../../services/api';
+import { useToast } from '../../hooks/Toast';
 
 import {
   Container,
@@ -18,6 +20,7 @@ import {
   BackgroundIMG,
   ButtonProvider,
 } from './styles';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 interface SignInFormData {
   email: string;
@@ -26,7 +29,12 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+
+  const { addToast } = useToast();
+
   const history = useHistory();
+
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const [isCustomer, setIsCustomer] = useState(false);
   const [isClickedProvider, setIsClickedProvider] = useState(false);
@@ -47,25 +55,94 @@ const SignIn: React.FC = () => {
   const handleSubmitCustomer = useCallback(
     async (data: SignInFormData) => {
       try {
+        formRef.current?.setErrors({});
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome Obrigatório'),
+          email: Yup.string()
+            .required('E-Mail Obrigatório')
+            .email('Digite um Email valido'),
+          password: Yup.string().min(6, 'no Mínimo 6 dígitos'),
+          phone: Yup.string()
+            .required('o telefone é obrigatório')
+            .min(11, 'inclua o numero com o DD')
+            .matches(phoneRegExp, 'Numero de telefone não é valido'),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
         await api.post('/customers', data);
+
+        addToast({
+          type: 'success',
+          title: 'Cadastro realizado',
+          description: 'Você ja pode fazer seu logon na aplicação!',
+        });
         history.push('/signin');
       } catch (err) {
-        console.log(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+          return;
+        }
+        addToast({
+          type: 'error',
+          title: 'Erro no cadastro',
+          description:
+            'Ocorreu um erro ao fazer cadastro cheque as credenciais',
+        });
       }
     },
-    [history],
+    [history, phoneRegExp, addToast],
   );
 
   const handleSubmitProvider = useCallback(
     async (data: SignInFormData) => {
       try {
+        formRef.current?.setErrors({});
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome Obrigatório'),
+          email: Yup.string()
+            .required('E-Mail Obrigatório')
+            .email('Digite um Email valido'),
+          password: Yup.string().min(6, 'no Mínimo 6 dígitos'),
+          phone: Yup.string()
+            .required('o telefone é obrigatório')
+            .min(11, 'inclua o numero com o DD')
+            .matches(phoneRegExp, 'Numero de telefone não é valido'),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
         await api.post('/providers', data);
+
+        addToast({
+          type: 'success',
+          title: 'Cadastro realizado',
+          description: 'Você ja pode fazer seu logon na aplicação!',
+        });
+
         history.push('/signin');
       } catch (err) {
-        console.log(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+          return;
+        }
+        addToast({
+          type: 'error',
+          title: 'Erro no cadastro',
+          description:
+            'Ocorreu um erro ao fazer cadastro cheque as credenciais',
+        });
       }
     },
-    [history],
+    [history, addToast, phoneRegExp],
   );
 
   return (
@@ -74,7 +151,7 @@ const SignIn: React.FC = () => {
 
       <Content>
         <AnimationContainer>
-          <h1>Faça seu login</h1>
+          <h1>Faça seu cadastro</h1>
           <ButtonContainer>
             <ButtonProvider
               onClick={handleLoginProvider}

@@ -1,13 +1,17 @@
 import React, { useCallback, useRef, useState } from 'react';
+import * as Yup from 'yup';
+import { FiLock, FiMail, FiArrowLeft } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
-import { FiLock, FiMail, FiArrowLeft } from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import getValidationErrors from '../../utils/getValidationErrors';
+import { useToast } from '../../hooks/Toast';
+import { useAuth } from '../../hooks/Auth';
+
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { useAuth } from '../../hooks/Auth';
 
 import {
   Container,
@@ -25,8 +29,9 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
-  const { signInCustomer, signInProvider } = useAuth();
   const formRef = useRef<FormHandles>(null);
+  const { signInCustomer, signInProvider } = useAuth();
+  const { addToast } = useToast();
   const [isCustomer, setISCustomer] = useState(false);
   const [isClickedProvider, setIsClickedProvider] = useState(false);
   const [isClickedCustomer, setIsClickedCustomer] = useState(false);
@@ -48,6 +53,16 @@ const SignIn: React.FC = () => {
   const handleSubmitCustomer = useCallback(
     async (data: SignInFormData) => {
       try {
+        formRef.current?.setErrors({});
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-Mail Obrigatório')
+            .email('Digite um Email valido'),
+          password: Yup.string().required('Senha obrigatória'),
+        });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
         await signInCustomer({
           email: data.email,
           password: data.password,
@@ -55,15 +70,36 @@ const SignIn: React.FC = () => {
         console.log('customer');
         history.push('/dashboard');
       } catch (err) {
-        console.log(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+
+          return;
+        }
+        addToast({
+          type: 'error',
+          title: 'Erro na autenticação',
+          description: 'Ocorreu um erro ao fazer login cheque as credenciais',
+        });
       }
     },
-    [signInCustomer, history],
+    [signInCustomer, history, addToast],
   );
 
   const handleSubmitProvider = useCallback(
     async (data: SignInFormData) => {
       try {
+        formRef.current?.setErrors({});
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-Mail Obrigatório')
+            .email('Digite um Email valido'),
+          password: Yup.string().required('Senha obrigatória'),
+        });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
         await signInProvider({
           email: data.email,
           password: data.password,
@@ -71,10 +107,19 @@ const SignIn: React.FC = () => {
         console.log('provider');
         history.push('/dashboard');
       } catch (err) {
-        console.log(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+        }
+        addToast({
+          type: 'error',
+          title: 'Erro na autenticação',
+          description: 'Ocorreu um erro ao fazer login cheque as credenciais',
+        });
       }
     },
-    [signInProvider, history],
+    [signInProvider, history, addToast],
   );
 
   return (
