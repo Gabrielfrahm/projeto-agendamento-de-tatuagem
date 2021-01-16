@@ -1,8 +1,9 @@
 import React from 'react';
 import {Text} from 'react-native';
+import SignIn from './pages/SignIn';
 
 const App: React.FC = () => {
-  return <Text>Hola</Text>;
+  return <SignIn />;
 };
 
 export default App;
