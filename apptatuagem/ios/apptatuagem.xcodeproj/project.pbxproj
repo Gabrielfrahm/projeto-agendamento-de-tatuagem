@@ -16,6 +16,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* apptatuagemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* apptatuagemTests.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D8E048771F0B411097ECCDC8 /* BigShouldersStencilText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73D9979E20DB494B90B4BF47 /* BigShouldersStencilText-Medium.ttf */; };
+		D41A0F3D9D31405D8DBCEDCC /* BigShouldersStencilText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03D346C111DB401F99CB84FB /* BigShouldersStencilText-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = apptatuagem/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		73D9979E20DB494B90B4BF47 /* BigShouldersStencilText-Medium.ttf */ = {isa = PBXFileReference; name = "BigShouldersStencilText-Medium.ttf"; path = "../assets/fonts/BigShouldersStencilText-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		03D346C111DB401F99CB84FB /* BigShouldersStencilText-Regular.ttf */ = {isa = PBXFileReference; name = "BigShouldersStencilText-Regular.ttf"; path = "../assets/fonts/BigShouldersStencilText-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				00E356EF1AD99517003FC87E /* apptatuagemTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				CE529E61B2FE4AB89996912A /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -156,6 +161,16 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		CE529E61B2FE4AB89996912A /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				73D9979E20DB494B90B4BF47 /* BigShouldersStencilText-Medium.ttf */,
+				03D346C111DB401F99CB84FB /* BigShouldersStencilText-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -295,6 +310,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				D8E048771F0B411097ECCDC8 /* BigShouldersStencilText-Medium.ttf in Resources */,
+				D41A0F3D9D31405D8DBCEDCC /* BigShouldersStencilText-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
