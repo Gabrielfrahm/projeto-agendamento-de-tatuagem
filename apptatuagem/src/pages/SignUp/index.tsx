@@ -7,7 +7,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import backImg from '../../assets/BackImg.png';
+import backImg from '../../assets/BackImgUp.png';
 import * as Yup from 'yup';
 
 import { useAuth } from '../../hooks/Auth';
@@ -33,9 +33,13 @@ interface SignInFormData {
   password: string;
 }
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+
+  const InputEmailRef = useRef<TextInput>(null);
   const InputPasswordRef = useRef<TextInput>(null);
+  const InputPhoneRef = useRef<TextInput>(null);
+
   const navigation = useNavigation();
   const { signInCustomer, signInProvider } = useAuth();
 
@@ -43,8 +47,6 @@ const SignIn: React.FC = () => {
   const [isCustomer, setISCustomer] = useState(false);
   const [isClickedProvider, setIsClickedProvider] = useState(false);
   const [isClickedCustomer, setIsClickedCustomer] = useState(false);
-
-
 
   const handleLoginCustomer = useCallback(() => {
     setISCustomer(true);
@@ -135,7 +137,7 @@ const SignIn: React.FC = () => {
 
           <Container>
             <View>
-              <Title>Faça seu login</Title>
+              <Title>Cadastros</Title>
             </View>
             <ButtonContainer >
               <ButtonProvider
@@ -156,6 +158,19 @@ const SignIn: React.FC = () => {
               <Input
                 autoCorrect={false}
                 autoCapitalize='none'
+                name='name'
+                icon='user'
+                placeholder='Nome'
+                returnKeyType='next'
+                onSubmitEditing={() => {
+                  InputEmailRef.current?.focus();
+                }}
+              />
+
+              <Input
+                autoCorrect={false}
+                ref={InputEmailRef}
+                autoCapitalize='none'
                 keyboardType='email-address'
                 name='email'
                 icon='mail'
@@ -174,25 +189,33 @@ const SignIn: React.FC = () => {
                 placeholder="Senha"
                 returnKeyType="send"
                 onSubmitEditing={() => {
+                  InputPhoneRef.current?.focus()
+                }}
+              />
+              <Input
+                ref={InputPhoneRef}
+                secureTextEntry
+                name="phone"
+                icon="phone"
+                placeholder="Numero"
+                returnKeyType="send"
+                onSubmitEditing={() => {
                   formRef.current?.submitForm()
                 }}
               />
 
+
               <Button onPress={() => {
                 formRef.current?.submitForm()
-              }}>Entrar</Button>
+              }}>Cadastrar</Button>
 
             </Form>
 
-            <ForgotPassword>
-              <ForgotPasswordText>
-                Esqueceu a senha?
-              </ForgotPasswordText>
-            </ForgotPassword>
 
-            <CreateAccountButton onPress={()=> {navigation.navigate('SignUp')}}>
+
+            <CreateAccountButton onPress={()=> {navigation.goBack()}}>
               <CreateAccountText>
-                Não tem uma conta?
+                Voltar
               </CreateAccountText>
             </CreateAccountButton>
 
@@ -206,4 +229,4 @@ const SignIn: React.FC = () => {
 
 
 
-export default SignIn;
+export default SignUp;
