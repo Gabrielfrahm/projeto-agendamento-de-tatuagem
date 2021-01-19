@@ -92,7 +92,7 @@ export const ForgotPasswordText = styled.Text`
 `;
 
 
-export const CreateAccountButton = styled.TouchableOpacity`
+export const BackLoginButton = styled.TouchableOpacity`
   position: absolute;
   left: 0;
   bottom: 0;
@@ -107,7 +107,7 @@ export const CreateAccountButton = styled.TouchableOpacity`
   flex-direction: row;
 `;
 
-export const CreateAccountText = styled.Text`
+export const BackLoginText = styled.Text`
   color: #fff;
   font-size: 24px;
   font-family: 'BigShouldersStencilText-Medium';

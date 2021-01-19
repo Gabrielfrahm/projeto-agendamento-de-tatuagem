@@ -4,6 +4,7 @@ import {Form} from '@unform/mobile';
 import {FormHandles} from '@unform/core';
 import getValidationErrors from '../../utils/getValidationErrors';
 
+import Icon from 'react-native-vector-icons/Feather';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
@@ -29,8 +30,10 @@ import {
 } from './styles';
 
 interface SignInFormData {
+
   email: string;
   password: string;
+
 }
 
 const SignIn: React.FC = () => {
@@ -142,7 +145,7 @@ const SignIn: React.FC = () => {
                 onPress={handleLoginProvider}
                 isClickedProvider={isClickedProvider}
               >
-                <ButtonText  >Sou tatuador</ButtonText>
+                <ButtonText >Sou tatuador</ButtonText>
               </ButtonProvider>
               <ButtonCustomer
                 onPress={handleLoginCustomer}

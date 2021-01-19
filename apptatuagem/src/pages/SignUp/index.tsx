@@ -4,6 +4,7 @@ import {Form} from '@unform/mobile';
 import {FormHandles} from '@unform/core';
 import getValidationErrors from '../../utils/getValidationErrors';
 
+import Icon from 'react-native-vector-icons/Feather';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
@@ -23,14 +24,17 @@ import {
   ButtonText,
   ForgotPassword,
   ForgotPasswordText,
-  CreateAccountButton,
-  CreateAccountText,
+  BackLoginButton,
+  BackLoginText,
 
 } from './styles';
+import api from '../../services/api';
 
-interface SignInFormData {
+interface SignUpFormData {
+  name: string;
   email: string;
   password: string;
+  phone: string;
 }
 
 const SignUp: React.FC = () => {
@@ -48,6 +52,8 @@ const SignUp: React.FC = () => {
   const [isClickedProvider, setIsClickedProvider] = useState(false);
   const [isClickedCustomer, setIsClickedCustomer] = useState(false);
 
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
   const handleLoginCustomer = useCallback(() => {
     setISCustomer(true);
     setIsClickedCustomer(true);
@@ -61,22 +67,27 @@ const SignUp: React.FC = () => {
   }, []);
 
   const handleSubmitCustomer = useCallback(
-    async (data: SignInFormData) => {
+    async (data: SignUpFormData) => {
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
+          name: Yup.string().required('Nome Obrigatório'),
           email: Yup.string()
             .required('E-Mail Obrigatório')
             .email('Digite um Email valido'),
-          password: Yup.string().required('Senha obrigatória'),
+          password: Yup.string().min(6, 'no Mínimo 6 dígitos'),
+          phone: Yup.string()
+            .required('o telefone é obrigatório')
+            .min(11, 'inclua o numero com o DD')
+            .matches(phoneRegExp, 'Numero de telefone não é valido'),
         });
         await schema.validate(data, {
           abortEarly: false,
         });
-        await signInCustomer({
-          email: data.email,
-          password: data.password,
-        });
+        await api.post('/customers', data);
+
+        navigation.navigate('CreatedUser');
+
         console.log('customer');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
@@ -96,23 +107,28 @@ const SignUp: React.FC = () => {
   );
 
   const handleSubmitProvider = useCallback(
-    async (data: SignInFormData) => {
+    async (data: SignUpFormData) => {
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
+          name: Yup.string().required('Nome Obrigatório'),
           email: Yup.string()
             .required('E-Mail Obrigatório')
             .email('Digite um Email valido'),
-          password: Yup.string().required('Senha obrigatória'),
+          password: Yup.string().min(6, 'no Mínimo 6 dígitos'),
+          phone: Yup.string()
+            .required('o telefone é obrigatório')
+            .min(11, 'inclua o numero com o DD')
+            .matches(phoneRegExp, 'Numero de telefone não é valido'),
         });
         await schema.validate(data, {
           abortEarly: false,
         });
-        await signInProvider({
-          email: data.email,
-          password: data.password,
-        });
+        await api.post('/providers', data);
+
         console.log('provider');
+
+        navigation.navigate('CreatedUser')
 
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
@@ -121,7 +137,7 @@ const SignUp: React.FC = () => {
           formRef.current?.setErrors(errors);
         }
         Alert.alert(
-          'Erro na autenticação',
+          'Erro no cadastro',
           'Ocorreu um erro ao fazer login cheque as credenciais',
         );
       }
@@ -194,7 +210,6 @@ const SignUp: React.FC = () => {
               />
               <Input
                 ref={InputPhoneRef}
-                secureTextEntry
                 name="phone"
                 icon="phone"
                 placeholder="Numero"
@@ -213,11 +228,12 @@ const SignUp: React.FC = () => {
 
 
 
-            <CreateAccountButton onPress={()=> {navigation.goBack()}}>
-              <CreateAccountText>
+            <BackLoginButton onPress={()=> {navigation.goBack()}}>
+              <BackLoginText>
+                <Icon name="arrow-left" size={25} />
                 Voltar
-              </CreateAccountText>
-            </CreateAccountButton>
+              </BackLoginText>
+            </BackLoginButton>
 
           </Container>
         </ScrollView>
