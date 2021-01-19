@@ -111,5 +111,5 @@ export const BackLoginText = styled.Text`
   color: #fff;
   font-size: 24px;
   font-family: 'BigShouldersStencilText-Medium';
-  margin-left: 16px;
+  margin-left: 1px;
 `;
