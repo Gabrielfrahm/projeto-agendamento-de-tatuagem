@@ -1,1 +1,2 @@
 import './HashPasswordProvider';
+import './StoregeProvider';
