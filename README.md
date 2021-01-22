@@ -54,8 +54,6 @@
 
 <hr>
 <p id="pre">
-### Pré-requisitos
-
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
@@ -128,7 +126,7 @@ $ yarn ios
 </p>
 <hr>
 <p id="tec">
-### 🛠 Tecnologias
+🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
