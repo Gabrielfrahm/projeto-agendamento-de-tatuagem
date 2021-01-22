@@ -28,7 +28,7 @@
 <p align="center">
  <a href="#features">Features</a> •
  <a href="#pre">Pre-requisitos</a> • 
- <a href="#contribuicao">Contribuição</a> • 
+ <a href="#tec">Tecnologias</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
 </p>
@@ -52,6 +52,7 @@
   - [ ] implementação cache
   - [ ] implementação notifações
 
+<hr>
 <p id="pre">
 ### Pré-requisitos
 
@@ -124,4 +125,16 @@ $ yarn ios
 
 # O emulador inciará
 ```
+</p>
+<hr>
+<p id="tec">
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+
 </p>
