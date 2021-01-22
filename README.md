@@ -36,15 +36,15 @@
 
   ### Features
 
-  - [x] Login de tatuador
-  - [x] Login de cliente
-  - [x] Cadastro de tatuador
-  - [x] Cadastro de cliente
+  - [x] ✔ Login de tatuadores 
+  - [x] ✔ Login de cliente
+  - [x] ✔ Cadastro de tatuador
+  - [x] ✔ Cadastro de cliente
   - [ ] Atualizar perfil (tatuador, cliente)
-  - [x] Cadastro de agendamento
+  - [x] ✔ Cadastro de agendamento
   - [ ] listar agendamento do mes do tatuador
   - [ ] listar agendamento do dia do tatuador
-  - [ ] listar todos os tatuadores
+  - [x] ✔ listar todos os tatuadores
   - [ ] Recuperação de senha 
   - [ ] Provedor de email
   - [ ] Provedor de storage 
