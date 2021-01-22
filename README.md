@@ -1,4 +1,4 @@
-<h1 align="center">Agendamen tatuagem</h1>
+<h1 align="center">Agendamento tatuagem</h1>
 
 <h1 align="center">
     <a href="https://pt-br.reactjs.org/">💻 React</a>
