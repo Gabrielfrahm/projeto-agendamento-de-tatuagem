@@ -136,3 +136,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TypeScript](https://www.typescriptlang.org/)
 
 </p>
+
+<hr>
+📝 Licença
+Este projeto esta sobe a licença MIT.
+
+Feito com ❤️ por Gabriel Marques 👋🏽 Entre em contato!
+
