@@ -137,7 +137,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 </p>
 
-<hr>
+<hr id="licenc-a">
 📝 Licença
 Este projeto esta sobe a licença MIT.
 
