@@ -40,7 +40,7 @@
   - [x] Login de cliente
   - [x] Cadastro de tatuador
   - [x] Cadastro de cliente
-  - [ ] Atualzar perfil (tatuador, cliente)
+  - [ ] Atualizar perfil (tatuador, cliente)
   - [x] Cadastro de agendamento
   - [x] listar agendamento do mes do tatuador
   - [x] listar agendamento do dia do tatuador
@@ -48,9 +48,9 @@
   - [ ] Provedor de email
   - [ ] Provedor de storage 
   - [ ] Painel tatuador 
-  - [ ] Painel cliete
+  - [ ] Painel cliente
   - [ ] implementação cache
-  - [ ] implementação notifações
+  - [ ] implementação notificações
 
 <hr>
 <p id="pre">
