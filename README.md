@@ -42,8 +42,9 @@
   - [x] Cadastro de cliente
   - [ ] Atualizar perfil (tatuador, cliente)
   - [x] Cadastro de agendamento
-  - [x] listar agendamento do mes do tatuador
-  - [x] listar agendamento do dia do tatuador
+  - [ ] listar agendamento do mes do tatuador
+  - [ ] listar agendamento do dia do tatuador
+  - [ ] listar todos os tatuadores
   - [ ] Recuperação de senha 
   - [ ] Provedor de email
   - [ ] Provedor de storage 

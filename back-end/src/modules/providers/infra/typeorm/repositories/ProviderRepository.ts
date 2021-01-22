@@ -1,6 +1,7 @@
 import ICreateProviderDTO from '@modules/providers/dtos/ICreateProviderDTO';
+import IFindAllProviders from '@modules/providers/dtos/IFindAllProviders';
 import IProviderRepository from '@modules/providers/repositories/IProviderRepository';
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, Not, Repository } from 'typeorm';
 import Provider from '../entities/Provider';
 
 class ProviderRepository implements IProviderRepository {
@@ -8,6 +9,24 @@ class ProviderRepository implements IProviderRepository {
 
   constructor() {
     this.ormRepository = getRepository(Provider);
+  }
+
+  public async findAllProviders({
+    except_user_id,
+  }: IFindAllProviders): Promise<Provider[]> {
+    let users: Provider[];
+    if (except_user_id) {
+      users = await this.ormRepository.find({
+        where: {
+          // faz uma verificação quando o id nao for o id passado.
+          id: Not(except_user_id),
+        },
+      });
+    } else {
+      users = await this.ormRepository.find();
+    }
+
+    return users;
   }
 
   public async findById(id: string): Promise<Provider | undefined> {
