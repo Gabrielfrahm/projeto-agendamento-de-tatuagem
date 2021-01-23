@@ -41,11 +41,11 @@
   - [x] ✔ Cadastro de tatuador
   - [x] ✔ Cadastro de cliente
   - [ ] Atualizar perfil (tatuador, cliente)
-  - [x] ✔ Cadastro de agendamento
-  - [x] ✔ listar todos agendamento do dia para o tatuador
-  - [ ] listar agendamento disponível  do mes do tatuador
+  - [x] ✔ Cadastro de agendamento (finalizado no back-end)
+  - [x] ✔ listar todos agendamento do dia para o tatuador (finalizado no back-end)
+  - [x] ✔ listar agendamento disponível  do mes do tatuador (finalizado no back-end)
   - [ ] listar agendamento disponível do dia do tatuador
-  - [x] ✔ listar todos os tatuadores
+  - [x] ✔ listar todos os tatuadores (finalizado no back-end)
   - [ ] Recuperação de senha 
   - [ ] Provedor de email
   - [ ] Provedor de storage 
