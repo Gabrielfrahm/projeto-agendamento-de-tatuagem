@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles';
 import { useAuth } from '../../hooks/Auth';
 
 const Dashboard: React.FC = () => {
