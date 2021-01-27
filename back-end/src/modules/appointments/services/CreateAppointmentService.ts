@@ -1,6 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 import { startOfHour, isBefore, getHours } from 'date-fns';
 import AppError from '@shared/error/AppError';
+import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
+import IProviderRepository from '@modules/providers/repositories/IProviderRepository';
 import Appointment from '../infra/typeorm/entities/Appointment';
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
@@ -15,6 +17,12 @@ class CreateAppointmentService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
+
+    @inject('MailProvider')
+    private mailProvider: IMailProvider,
+
+    @inject('ProviderRepository')
+    private providerRepository: IProviderRepository,
   ) {}
 
   public async execute({
@@ -36,6 +44,12 @@ class CreateAppointmentService {
       throw new AppError('You can only create appointment between 8am and 6pm');
     }
 
+    const providerExists = await this.providerRepository.findById(provider_id);
+
+    if (!providerExists) {
+      throw new AppError('Providers is not existing');
+    }
+
     const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(
       appointmentDate,
       provider_id,
@@ -49,6 +63,14 @@ class CreateAppointmentService {
       provider_id,
       customer_id,
       date: appointmentDate,
+    });
+
+    await this.mailProvider.sendMail({
+      to: {
+        name: providerExists.name,
+        email: providerExists.email,
+      },
+      subject: '[Equipe Tattoo] you are a new appointment',
     });
 
     return appointment;
