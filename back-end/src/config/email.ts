@@ -14,7 +14,7 @@ export default {
   defaults: {
     from: {
       email: 'gbls.dev@zohomail.com',
-      name: 'Equipe GoBarber',
+      name: 'Equipe Tattoo',
     },
   },
 } as IMailConfig;

@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import { startOfHour, isBefore, getHours } from 'date-fns';
+import path from 'path';
 import AppError from '@shared/error/AppError';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import IProviderRepository from '@modules/providers/repositories/IProviderRepository';
@@ -65,12 +66,27 @@ class CreateAppointmentService {
       date: appointmentDate,
     });
 
+    // o caminho do template do email
+    const createAppointmentTemplate = path.resolve(
+      __dirname,
+      '..',
+      'views',
+      'create_appointment.hbs',
+    );
+
     await this.mailProvider.sendMail({
       to: {
         name: providerExists.name,
         email: providerExists.email,
       },
       subject: '[Equipe Tattoo] you are a new appointment',
+      templateData: {
+        file: createAppointmentTemplate,
+        variables: {
+          name: providerExists.name,
+          date: Date.now(),
+        },
+      },
     });
 
     return appointment;
