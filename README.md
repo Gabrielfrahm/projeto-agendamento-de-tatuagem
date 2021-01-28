@@ -47,7 +47,7 @@
   - [ ] listar agendamento disponível do dia do tatuador
   - [x] ✔ listar todos os tatuadores (finalizado no back-end)
   - [ ] Recuperação de senha 
-  - [ ] Provedor de email
+  - [x] ✔ Provedor de email
   - [ ] Provedor de storage 
   - [ ] Painel tatuador 
   - [ ] Painel cliente

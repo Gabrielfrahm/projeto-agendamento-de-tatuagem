@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import { startOfHour, isBefore, getHours } from 'date-fns';
+import { startOfHour, isBefore, getHours, format } from 'date-fns';
 import path from 'path';
 import AppError from '@shared/error/AppError';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
@@ -84,7 +84,7 @@ class CreateAppointmentService {
         file: createAppointmentTemplate,
         variables: {
           name: providerExists.name,
-          date: Date.now(),
+          date: format(appointmentDate, "dd/MM/yyyy 'às' HH:mm'h' "),
         },
       },
     });
