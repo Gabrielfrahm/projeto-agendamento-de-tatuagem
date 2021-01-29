@@ -1,8 +1,10 @@
 import { inject, injectable } from 'tsyringe';
+import path from 'path';
 import Customer from '@modules/customers/infra/typeorm/entities/Customer';
 import IHashPasswordProvider from '@shared/container/providers/HashPasswordProvider/models/IHashPasswordProvider';
 import IProviderRepository from '@modules/providers/repositories/IProviderRepository';
 import AppError from '@shared/error/AppError';
+import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import ICustomerRepository from '../repositories/ICustomerRepository';
 
 interface IRequestDTO {
@@ -17,6 +19,9 @@ class CreateProviderService {
   constructor(
     @inject('CustomerRepository')
     private customerRepository: ICustomerRepository,
+
+    @inject('MailProvider')
+    private mailProvider: IMailProvider,
 
     @inject('HashPasswordProvider')
     private hashPasswordProvider: IHashPasswordProvider,
@@ -54,6 +59,29 @@ class CreateProviderService {
       email,
       password: hashPassword,
       phone,
+    });
+
+    // o caminho do template do email
+    const createAppointmentTemplate = path.resolve(
+      __dirname,
+      '..',
+      'views',
+      'create_customers.hbs',
+    );
+
+    await this.mailProvider.sendMail({
+      to: {
+        name: customer.name,
+        email: customer.email,
+      },
+      subject: '[Equipe Tattoo]',
+      templateData: {
+        file: createAppointmentTemplate,
+        variables: {
+          name: customer.name,
+          link: `http://localhost:3000/signIn`,
+        },
+      },
     });
 
     return customer;
