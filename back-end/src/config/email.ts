@@ -9,7 +9,7 @@ interface IMailConfig {
 }
 
 export default {
-  driver: 'ethereal' || 'zoho',
+  driver: process.env.MAIL_DRIVER || 'ethereal',
 
   defaults: {
     from: {

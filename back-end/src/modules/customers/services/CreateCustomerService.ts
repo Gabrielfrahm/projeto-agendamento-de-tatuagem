@@ -79,7 +79,7 @@ class CreateProviderService {
         file: createAppointmentTemplate,
         variables: {
           name: customer.name,
-          link: `http://localhost:3000/signIn`,
+          link: `${process.env.APP_WEB_URL}/signIn`,
         },
       },
     });
