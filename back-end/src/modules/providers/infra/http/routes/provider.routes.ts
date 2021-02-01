@@ -1,4 +1,5 @@
 import ensureAuthenticated from '@shared/infra/http/middlewares/ensureAuthenticated';
+import { Joi, celebrate, Segments } from 'celebrate';
 
 import multer from 'multer';
 import uploadConfig from '@config/upload';
@@ -13,7 +14,18 @@ const upload = multer(uploadConfig.multer);
 const providerController = new ProviderController();
 const providerAvatarController = new ProviderAvatarController();
 
-providerRouter.post('/', providerController.create);
+providerRouter.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+      phone: Joi.string().required(),
+    },
+  }),
+  providerController.create,
+);
 
 providerRouter.patch(
   '/avatar',

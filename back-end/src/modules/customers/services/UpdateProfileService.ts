@@ -1,12 +1,12 @@
 import { inject, injectable } from 'tsyringe';
-import Provider from '@modules/providers/infra/typeorm/entities/Provider';
+import Customer from '@modules/customers/infra/typeorm/entities/Customer';
 import IHashPasswordProvider from '@shared/container/providers/HashPasswordProvider/models/IHashPasswordProvider';
 import ICustomerRepository from '@modules/customers/repositories/ICustomerRepository';
 import AppError from '@shared/error/AppError';
-import IProviderRepository from '../repositories/IProviderRepository';
+import IProviderRepository from '@modules/providers/repositories/IProviderRepository';
 
 interface IRequestDTO {
-  provider_id: string;
+  customer_id: string;
   name: string;
   email: string;
   old_password?: string;
@@ -28,38 +28,38 @@ class UpdateProfileService {
   ) {}
 
   public async execute({
-    provider_id,
+    customer_id,
     name,
     email,
     old_password,
     password,
     phone,
-  }: IRequestDTO): Promise<Provider> {
-    const provider = await this.providerRepository.findById(provider_id);
+  }: IRequestDTO): Promise<Customer> {
+    const customer = await this.customerRepository.findById(customer_id);
 
-    if (!provider) {
-      throw new AppError('Provider not found');
+    if (!customer) {
+      throw new AppError('Customer not found');
     }
     // acha o email caso ja tenha sendo usado em customer
-    const ifCustomerEmail = await this.customerRepository.findByEmail(email);
+    const ifProviderEmail = await this.providerRepository.findByEmail(email);
 
-    if (ifCustomerEmail) {
-      throw new AppError('E-mail already user if Customer user');
+    if (ifProviderEmail) {
+      throw new AppError('E-mail already user if Provider user');
     }
 
     // encontra o email
-    const providerWithUpdateEmail = await this.providerRepository.findByEmail(
-      provider.email,
+    const customerWithUpdateEmail = await this.customerRepository.findByEmail(
+      customer.email,
     );
 
     // caso o email seja encontrado e ele for diferente do id da pessoa que pediu o reset da erro
-    if (providerWithUpdateEmail && providerWithUpdateEmail.id !== provider_id) {
+    if (customerWithUpdateEmail && customerWithUpdateEmail.id !== customer_id) {
       throw new AppError('E-mail already used');
     }
 
-    provider.email = email;
-    provider.name = name;
-    provider.phone = phone;
+    customer.email = email;
+    customer.name = name;
+    customer.phone = phone;
 
     // se passar a senha mas não passa a senha antiga
     if (password && !old_password) {
@@ -72,18 +72,18 @@ class UpdateProfileService {
     if (password && old_password) {
       const checkedPassword = await this.hashPasswordProvider.compareHash(
         old_password,
-        provider.password,
+        customer.password,
       );
 
       if (!checkedPassword) {
         throw new AppError('Old password does not math');
       }
-      provider.password = await this.hashPasswordProvider.generateHash(
+      customer.password = await this.hashPasswordProvider.generateHash(
         password,
       );
     }
 
-    return this.providerRepository.save(provider);
+    return this.customerRepository.save(customer);
   }
 }
 

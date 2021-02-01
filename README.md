@@ -40,7 +40,7 @@
   - [x] ✔ Login de cliente
   - [x] ✔ Cadastro de tatuador
   - [x] ✔ Cadastro de cliente
-  - [ ] Atualizar perfil (tatuador, cliente)
+  - [x] ✔ Atualizar perfil (tatuador, cliente)
   - [x] ✔ Cadastro de agendamento (finalizado no back-end)
   - [x] ✔ listar todos agendamento do dia para o tatuador (finalizado no back-end)
   - [x] ✔ listar agendamento disponível  do mes do tatuador (finalizado no back-end)

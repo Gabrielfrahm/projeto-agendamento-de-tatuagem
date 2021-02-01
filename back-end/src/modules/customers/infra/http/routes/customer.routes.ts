@@ -1,5 +1,5 @@
 import { Router } from 'express';
-
+import { Joi, celebrate, Segments } from 'celebrate';
 import uploadConfig from '@config/upload';
 import multer from 'multer';
 import ensureAuthenticated from '@shared/infra/http/middlewares/ensureAuthenticated';
@@ -12,7 +12,18 @@ const upload = multer(uploadConfig.multer);
 const customerController = new CustomerController();
 const customerAvatarController = new CustomerAvatarController();
 
-customerRouter.post('/', customerController.create);
+customerRouter.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+      phone: Joi.string().required(),
+    },
+  }),
+  customerController.create,
+);
 
 customerRouter.patch(
   '/avatar',
