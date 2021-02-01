@@ -1,13 +1,18 @@
 import { Router } from 'express';
 
 import AppointmentsRouter from '@modules/appointments/infra/http/routes/appointments.routes';
+
 import SessionsProviderRouter from '@modules/providers/infra/http/routes/session.routes';
 import SessionsCustomerRouter from '@modules/customers/infra/http/routes/session.routes';
+
 import ProviderRouter from '@modules/providers/infra/http/routes/provider.routes';
 import AppointmentProviderRouter from '@modules/appointments/infra/http/routes/provider.routes';
-import CustomerRouter from '@modules/customers/infra/http/routes/customer.routes';
 import ProfileProviderRouter from '@modules/providers/infra/http/routes/profile.routes';
+
+import CustomerRouter from '@modules/customers/infra/http/routes/customer.routes';
 import ProfileCustomersRouter from '@modules/customers/infra/http/routes/profile.routes';
+
+import PasswordRouter from '@modules/providers/infra/http/routes/password.routes';
 
 const routes = Router();
 
@@ -22,5 +27,7 @@ routes.use('/appointments-providers', AppointmentProviderRouter);
 
 routes.use('/providers', ProfileProviderRouter);
 routes.use('/customers', ProfileCustomersRouter);
+
+routes.use('/providers-password', PasswordRouter);
 
 export default routes;
