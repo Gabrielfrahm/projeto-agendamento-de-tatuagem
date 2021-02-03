@@ -54,6 +54,7 @@
   - [ ] implementação cache
   - [ ] implementação notificações
   - [ ] implementação TDD (Eu sei deveria fazer junto com os services, porem decidir foca na logica primeiro [isso nao é uma boa pratica!])
+  - [ ] bug Fix
 
 <hr>
 <p id="pre">
