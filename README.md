@@ -41,6 +41,7 @@
   - [x] ✔ Cadastro de tatuador
   - [x] ✔ Cadastro de cliente
   - [x] ✔ Atualizar perfil (tatuador, cliente)
+  - [x] ✔ Email de recuperação de senha 
   - [ ] Recuperação de senha 
   - [x] ✔ Cadastro de agendamento (finalizado no back-end)
   - [x] ✔ listar todos agendamento do dia para o tatuador (finalizado no back-end)

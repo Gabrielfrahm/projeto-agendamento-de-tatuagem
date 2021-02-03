@@ -1,61 +1,41 @@
 <style>
-     *{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-    body{
-        width: 100vw;
-        height: 100vh;
-        background-color: #201E1E;
-        color: #fff;
-        font-size: 35px;
-        font-family: Arial, Helvetica, sans-serif;
-
-    }
-
-    header{
+    .header{
         width: 100%;
         height: 50px;
         background-color: #B34D4B;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
     }
 
-    div{
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .div{
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 600px;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
     }
 
-    img {
-        margin-top:50px;
-        position: relative;
-        width: 500px;
-    }
 
-    a{
+
+    .link{
       color: #fff;
       text-decoration: none;
     }
 
-    a:hover{
+    .link:hover{
       color: #B34D4B;
     }
 </style>
 
-<body>
-    <header>
-        Tattoo
-    </header>
-    <div>
+
+<div class="header">
+  <h1>Tattoo</h1>
+</div>
+
+    <div class="div">
         <p>Ola, <strong>{{name}}!</strong> </p>
         <p>você acaba de fazer o cadastro em nossa aplicação</p>
         <p>basta ir na pagina de login e realizar sua entrada 😉</p>
-        <a href={{link}}>Va para o login</a>
+        <a class="link" href={{link}}>Va para o login</a>
     </div>
 
-</body>
+

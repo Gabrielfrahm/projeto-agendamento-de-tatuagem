@@ -13,6 +13,7 @@ import CustomerRouter from '@modules/customers/infra/http/routes/customer.routes
 import ProfileCustomersRouter from '@modules/customers/infra/http/routes/profile.routes';
 
 import PasswordRouter from '@modules/providers/infra/http/routes/password.routes';
+import PasswordCustomerRouter from '@modules/customers/infra/http/routes/password.routes';
 
 const routes = Router();
 
@@ -29,5 +30,6 @@ routes.use('/providers', ProfileProviderRouter);
 routes.use('/customers', ProfileCustomersRouter);
 
 routes.use('/providers-password', PasswordRouter);
+routes.use('/customers-password', PasswordCustomerRouter);
 
 export default routes;
