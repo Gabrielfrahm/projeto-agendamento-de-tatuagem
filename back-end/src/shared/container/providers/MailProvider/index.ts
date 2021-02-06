@@ -7,11 +7,11 @@ import EtherealMailProvider from './implementations/EtherealMailProvider';
 import ZohoMailProvider from './implementations/ZohoMailProvider';
 
 const providers = {
-  ethereal: container.resolve(EtherealMailProvider),
-  zoho: container.resolve(ZohoMailProvider),
+  ethereal: EtherealMailProvider,
+  zoho: ZohoMailProvider,
 };
 
 container.registerInstance<IMailProvider>(
   'MailProvider',
-  providers[mailConfig.driver],
+  container.resolve<IMailProvider>(providers[mailConfig.driver]),
 );
