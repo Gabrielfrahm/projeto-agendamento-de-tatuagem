@@ -5,7 +5,7 @@ import path from 'path';
 const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
 
 interface IUploadConfig {
-  driver: 'outher' | 'disk';
+  driver: 'fire' | 'disk';
 
   tmpFolder: string;
 
@@ -17,14 +17,14 @@ interface IUploadConfig {
 
   config: {
     disk: {};
-    aws: {
+    fire: {
       bucket: string;
     };
   };
 }
 
 export default {
-  driver: 'disk',
+  driver: process.env.STORAGE_DRIVER,
 
   tmpFolder,
   uploadsFolder: path.resolve(tmpFolder, 'uploads'),
@@ -41,10 +41,10 @@ export default {
     }),
   },
 
-  // config: {
-  //   disk: {},
-  //   aws: {
-  //     bucket: 'app-gobarber',
-  //   },
-  // },
+  config: {
+    disk: {},
+    fire: {
+      bucket: '',
+    },
+  },
 } as IUploadConfig;

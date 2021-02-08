@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "agendamento-tatuagem",
+  "private_key_id": "b70e96bbbf9e5740367e4134b02d01b749af3b1f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDtsd+vz+mAHq8Z\nTPttcPRupTu9Shkav8J08uY2II3+mD80vvpaeI1waQlE8nW0cDHzM85bnVs4oqiE\nAzZC2/HkPNHp6m0v4+BHNXFK44NuRmeX3RQoQlKWjDIDnII1O5d7ANMxJ/ccUEhH\nasLzxfYVCfbveUqX+X77sXlNiolq3Cofxz4HvWK3369MGw4DxCaw2IRTnHpJHQ8W\nIYwfiTBXe3Ocb4UoWJqER4Gq+3bVG5DJISB27fIErFDhLf+4zgp19gYdicNrliS8\nSZYzofBRDp68JZPuwXfLrKpUpDLatgkJbJMcwuzuTPjE+5plgXCLaKBb+/LdRB/8\nJXgtojHLAgMBAAECggEABjQqyO1txDzIyCnEtC4LCyo/3WhmMFcJ7cB7NrVxz0/M\n8oT7hsn3sxPivIxxewSkoRrci3KXc2p3aH6m92bDMPhPaEIImIPjkig4bUJz5zhq\nMsH/6S8V9bzx/zsiAN6tzPWQDYvj/LaxtD96mB82FYV9jvGE+2N1J3+R0W7IuGO6\nyhWHFMMXBNzYkyidl2NHTlfdYGnxPR3+gXw8YbZhmRhfBpiAVCcJf3G2ja3xdNoB\nwCiqJAT87MCs4/RYDKidP6Nswcl27CepQrKAn0pa8pbcdh4T3Cbxx8f6VWg7DHl5\nWTpfTejZPMer4X0lQixdha2H4fE3TVjsX8fu6c1IJQKBgQD9fCn7KZZTnWJeC+Ov\nCAg3v/DIx5imX1wX2D/Y/Bg1Ld7KPwGX1lo1C8m5aDExN8RfN22MfHVa+y9tlfu1\n9nzfULufMaSusiaqOoaxBI+xE6rjgTlBQLCuFdAK0f33QC0cNCTgGformgDegvmp\nwAl9McBXFimhEum0SMenahaLPQKBgQDwDZqK4zcuPZscHpaYOq/uZiQp9Qf+25Nf\n70WeyrnlUK3HrUVhIxgdtawahGsQvTl4Vdk/nYKzXMLCbE/YnOBpJK2oqsIHPJpx\n2PnZUQxf3/P/7dcmHt3WZecVFqhCiEXApu0SrcCTlnZbyV/kU4JSrfwp7BVVEtTj\nLTi+noyhpwKBgETntqW+tU1/b9ju1HKk9U7qTzLVBwrayzb0Is8CIDZ8hJ5nqDA1\nJYpb7PcIeq7NYQUdFRtmTaRwuYDJj4X0PheaY5YvsXuHk/kcNbby7XiORxrW6tBx\nHFYGOepnEOlgOaL8DbYZeabWkzvpUKKzQCEXIBjMPn65nGvUiOlabkxlAoGAdzRK\nKe3q2Ot+utf1sGJ0Os495xfmgIhJBrqqt8+zwEvv/9frO/FRaG9upzxablWI1FjN\nKOnunWLS0/k1LTu5tHyiP7+L2kwd5ar5ZxD4NCPh5pUU4bkyL+Uqey5lH6TL/n7l\n+wCNQLzWyX2WQKu3a5c6QRcbAMP5M1ahdwcEjsECgYEAq5AvLICmCaBUoiRIvLbf\nXnXMxAchJxN+UyQEJ+962Ggc81I/W6SMnmAsAszxSpqtock7Hpzx0hZaHcHmZKPO\ntuXJsvpUNpJf4aSOq04cDEZ6R6O8Ma/cy9Z8OdTJ0Ox2aq/wetBD3lxSojgMK7wB\nbvuryLkmAlQxIljLsKhbyqs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-wimwf@agendamento-tatuagem.iam.gserviceaccount.com",
+  "client_id": "102260992041555827108",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-wimwf%40agendamento-tatuagem.iam.gserviceaccount.com"
+}
