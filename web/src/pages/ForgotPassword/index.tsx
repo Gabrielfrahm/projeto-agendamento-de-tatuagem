@@ -147,7 +147,7 @@ const ForgotPassword: React.FC = () => {
       </Link>
       <Content>
         <AnimationContainer>
-          <h1>Faça seu login</h1>
+          <h1>Recuperação de senha</h1>
           <ButtonContainer>
             <ButtonProvider
               onClick={handleLoginProvider}

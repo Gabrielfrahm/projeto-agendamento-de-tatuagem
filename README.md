@@ -49,7 +49,7 @@
   - [ ] listar agendamento disponível do dia do tatuador
   - [x] ✔ listar todos os tatuadores (finalizado no back-end)
   - [x] ✔ Provedor de email
-  - [ ] Provedor de storage (firebase)
+  - [x] Provedor de storage (firebase)
   - [ ] Painel tatuador 
   - [ ] Painel cliente
   - [ ] implementação cache

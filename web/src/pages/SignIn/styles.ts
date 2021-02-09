@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 import signInBackgroundImg from '../../assets/signIn.webp';
+// import signInBackgroundImg from '../../assets/teste.gif';
 
 interface ButtonProviderProps {
   isClickedProvider: boolean;
