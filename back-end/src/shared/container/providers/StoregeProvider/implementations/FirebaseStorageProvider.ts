@@ -11,7 +11,16 @@ export default class FirebaseStorageProvider implements IStorageProvider {
   public async saveFile(file: string): Promise<string> {
     admin.initializeApp({
       credential: admin.credential.cert(
-        path.resolve(__dirname, 'keyFirebase.json'),
+        path.resolve(
+          __dirname,
+          '..',
+          '..',
+          '..',
+          '..',
+          '..',
+          '..',
+          'keyFirebase.json',
+        ),
       ),
 
       storageBucket: `gs://agendamento-tatuagem.appspot.com`,

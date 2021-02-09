@@ -5,7 +5,9 @@ temp/
 .env
 coverage
 
-ormconfig.json
+keyFirebase.json
 
+ormconfig.json
+/
 tmp/*
 !tmp/.gitkeep
