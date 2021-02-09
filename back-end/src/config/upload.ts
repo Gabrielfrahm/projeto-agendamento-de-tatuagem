@@ -1,6 +1,8 @@
 import multer, { StorageEngine } from 'multer';
 import crypto from 'crypto';
+
 import path from 'path';
+import { v4 as uuid } from 'uuid';
 
 const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
 
@@ -8,6 +10,8 @@ interface IUploadConfig {
   driver: 'fire' | 'disk';
 
   tmpFolder: string;
+
+  tokenDownload: string;
 
   uploadsFolder: string;
 
@@ -25,6 +29,8 @@ interface IUploadConfig {
 
 export default {
   driver: process.env.STORAGE_DRIVER,
+
+  tokenDownload: uuid(),
 
   tmpFolder,
   uploadsFolder: path.resolve(tmpFolder, 'uploads'),

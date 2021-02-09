@@ -9,6 +9,8 @@ keyFirebase.json
 
 ormconfig.json
 
+ormconfig.json
+
 /
 tmp/*
 !tmp/.gitkeep

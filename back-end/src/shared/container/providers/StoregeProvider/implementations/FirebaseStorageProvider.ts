@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { v4 as uuid } from 'uuid';
+import sharp from 'sharp';
 import path from 'path';
 import uploadConfig from '@config/upload';
 import admin from 'firebase-admin';
@@ -29,7 +29,10 @@ export default class FirebaseStorageProvider implements IStorageProvider {
   public async saveFile(file: string): Promise<string> {
     const originalPath = path.resolve(uploadConfig.tmpFolder, file);
 
-    const contentType = mime.getType(originalPath);
+    // redimensionar a imagem
+    await sharp(originalPath).resize(300, 500).toFile(file);
+
+    const contentType = mime.getType(file);
 
     if (!contentType) {
       throw new AppError('file not found');
@@ -40,18 +43,23 @@ export default class FirebaseStorageProvider implements IStorageProvider {
     const metadata = {
       metadata: {
         // This line is very important. It's to create a download token.
-        firebaseStorageDownloadTokens: uuid(),
+        firebaseStorageDownloadTokens: uploadConfig.tokenDownload,
       },
-      contentType: 'image/png',
+      // contentType: 'image/jpeg',
+
       cacheControl: 'public, max-age=31536000',
     };
 
-    await bucket.upload(originalPath, {
+    await bucket.upload(file, {
       metadata,
       gzip: true,
+      // destination: `profile/${}`,
     });
 
-    await fs.promises.unlink(originalPath);
+    // apaga da pasta upload
+    await fs.promises.unlink(file);
+
+    await fs.promises.unlink(`${uploadConfig.tmpFolder}/${file}`);
 
     return file;
   }

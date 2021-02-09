@@ -45,8 +45,8 @@ class Customer {
     switch (uploadConfig.driver) {
       case 'disk':
         return `${'http://192.168.15.139:3333'}/files/${this.avatar}`;
-      case 'outher':
-        return `${process.env.APP_WEB_URL}/files/${this.avatar}`;
+      case 'fire':
+        return `${process.env.STORAGE_FIREBASE_URL}${this.avatar}?alt=media&token=${uploadConfig.tokenDownload}`;
       default:
         return null;
     }
