@@ -8,7 +8,7 @@ import AppError from '@shared/error/AppError';
 import IStorageProvider from '../models/IStorageProvider';
 
 export default class FirebaseStorageProvider implements IStorageProvider {
-  public async saveFile(file: string): Promise<string> {
+  constructor() {
     admin.initializeApp({
       credential: admin.credential.cert(
         path.resolve(
@@ -22,10 +22,11 @@ export default class FirebaseStorageProvider implements IStorageProvider {
           'keyFirebase.json',
         ),
       ),
-
       storageBucket: `gs://agendamento-tatuagem.appspot.com`,
     });
+  }
 
+  public async saveFile(file: string): Promise<string> {
     const originalPath = path.resolve(uploadConfig.tmpFolder, file);
 
     const contentType = mime.getType(originalPath);
@@ -33,11 +34,6 @@ export default class FirebaseStorageProvider implements IStorageProvider {
     if (!contentType) {
       throw new AppError('file not found');
     }
-
-    // await fs.promises.rename(
-    //   path.resolve(uploadConfig.tmpFolder, file),
-    //   path.resolve(uploadConfig.uploadsFolder, file),
-    // );
 
     const bucket = admin.storage().bucket();
 
@@ -55,18 +51,12 @@ export default class FirebaseStorageProvider implements IStorageProvider {
       gzip: true,
     });
 
+    await fs.promises.unlink(originalPath);
+
     return file;
   }
 
   public async deleteFile(file: string): Promise<void> {
-    const filePath = path.resolve(uploadConfig.uploadsFolder, file);
-
-    try {
-      await fs.promises.stat(filePath);
-    } catch {
-      return;
-    }
-
-    admin.storage().bucket().delete();
+    admin.storage().bucket().file(file).delete();
   }
 }
