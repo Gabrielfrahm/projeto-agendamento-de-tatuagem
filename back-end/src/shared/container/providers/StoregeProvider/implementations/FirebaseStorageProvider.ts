@@ -53,7 +53,7 @@ export default class FirebaseStorageProvider implements IStorageProvider {
     await bucket.upload(file, {
       metadata,
       gzip: true,
-      // destination: `profile/${}`,
+      // destination: `profile/${file}`,
     });
 
     // apaga da pasta upload
