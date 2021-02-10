@@ -67,7 +67,6 @@ const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
-        console.log('customer');
         history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
@@ -104,7 +103,6 @@ const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
-        console.log('provider');
         history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {

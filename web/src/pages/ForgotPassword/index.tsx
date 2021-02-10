@@ -9,7 +9,6 @@ import { FormHandles } from '@unform/core';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useToast } from '../../hooks/Toast';
-import { useAuth } from '../../hooks/Auth';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -39,8 +38,6 @@ const ForgotPassword: React.FC = () => {
   const [isClickedProvider, setIsClickedProvider] = useState(false);
   const [isClickedCustomer, setIsClickedCustomer] = useState(false);
 
-  const history = useHistory();
-
   const handleLoginCustomer = useCallback(() => {
     setISCustomer(true);
     setIsClickedCustomer(true);
@@ -69,8 +66,6 @@ const ForgotPassword: React.FC = () => {
         await api.post('/customers-password/forgot', {
           email: data.email,
         });
-
-        console.log('customer');
 
         addToast({
           type: 'success',
@@ -114,7 +109,6 @@ const ForgotPassword: React.FC = () => {
         await api.post('/providers-password/forgot', {
           email: data.email,
         });
-        console.log('provider');
 
         addToast({
           type: 'success',

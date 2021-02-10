@@ -53,7 +53,6 @@ const AuthProvider: React.FC = ({ children }) => {
     });
 
     const { token, userWithoutPassword } = response.data;
-    console.log(response.data);
     localStorage.setItem('@Agendamento-tatuagem:token', token);
     localStorage.setItem(
       '@Agendamento-tatuagem:user',
@@ -72,7 +71,6 @@ const AuthProvider: React.FC = ({ children }) => {
     });
 
     const { token, userWithoutPassword } = response.data;
-    console.log(response.data);
     localStorage.setItem('@Agendamento-tatuagem:token', token);
     localStorage.setItem(
       '@Agendamento-tatuagem:user',
