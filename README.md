@@ -22,7 +22,7 @@
 </h4>
 
 <p align="center">
-  <img  src="![giphy](https://user-images.githubusercontent.com/49403676/107547382-225d0300-6bac-11eb-8ccb-9c87dc0b82e8.gif)" styles="width:700px,height:600px"/>
+  <img  src="![giphy](https://user-images.githubusercontent.com/49403676/107547382-225d0300-6bac-11eb-8ccb-9c87dc0b82e8.gif)" />
 </p>
 
 <p align="center">
