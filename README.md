@@ -42,20 +42,20 @@
   - [x] ✔ Cadastro de cliente
   - [x] ✔ Atualizar perfil (tatuador, cliente)
   - [x] ✔ Email de recuperação de senha 
-  - [x] Recuperação de senha 
+  - [x] ✔ Recuperação de senha 
   - [x] ✔ Cadastro de agendamento (finalizado no back-end)
   - [x] ✔ listar todos agendamento do dia para o tatuador (finalizado no back-end)
   - [x] ✔ listar agendamento disponível  do mes do tatuador (finalizado no back-end)
   - [ ] listar agendamento disponível do dia do tatuador
   - [x] ✔ listar todos os tatuadores (finalizado no back-end)
   - [x] ✔ Provedor de email
-  - [x] Provedor de storage (firebase)
+  - [x] ✔ Provedor de storage (firebase)
   - [ ] Painel tatuador 
   - [ ] Painel cliente
   - [ ] implementação cache
   - [ ] implementação notificações
   - [ ] implementação TDD (Eu sei deveria fazer junto com os services, porem decidir foca na logica primeiro [isso nao é uma boa pratica!])
-  - [x] bug Fix (ethereal esta fora do ar)
+  - [x] ✔ bug Fix (ethereal esta fora do ar)
 
 <hr>
 <p id="pre">
