@@ -7,6 +7,10 @@
     "username": "postgres",
     "password": "docker",
     "database": "agendamento_tatuagem",
+    "type": "postgres",
+    "ssl": {
+    "rejectUnauthorized": false
+    },
     "entities": [
       "./src/modules/**/infra/typeorm/entities/*.ts"
     ],
