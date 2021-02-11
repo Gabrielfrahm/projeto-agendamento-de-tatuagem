@@ -90,15 +90,15 @@ const Landpage: React.FC = () => {
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag2} alt="dale" />
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag3} alt="dale" />
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag4} alt="dale" />
             </CardWork>
 
             <CardWork>
