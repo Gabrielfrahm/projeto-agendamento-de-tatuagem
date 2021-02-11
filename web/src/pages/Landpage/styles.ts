@@ -359,7 +359,6 @@ export const ArtistsContainer = styled.div``;
 
 export const Artists = styled.div`
   height: 100vh;
-  width: 100vw;
 
   /* display: flex;
   justify-content: center;
@@ -367,7 +366,6 @@ export const Artists = styled.div`
   background-color: #b34d4b;
 
   @media (max-width: 600px) {
-    height: 94vh;
   }
 `;
 
