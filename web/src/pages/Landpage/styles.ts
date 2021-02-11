@@ -15,7 +15,6 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   background: #b34d4b;
-  opacity: 0.9;
 
   width: 100%;
   height: 50px;
@@ -38,10 +37,10 @@ export const Header = styled.div`
   }
 
   a {
-    font-weight: 300;
+    font-weight: 500;
     text-decoration: none;
     letter-spacing: 1px;
-    color: #ffff;
+    color: #fff;
 
     &:hover {
       color: ${shade(0.2, '#f2f2f2')};
@@ -252,7 +251,6 @@ export const TextPresentation = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
-    max-width: 1000px;
 
     p {
       font-size: 25px;
@@ -274,7 +272,7 @@ export const ImgPresentation = styled.div`
 `;
 
 export const WorkContainer = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
 `;
 
 export const TitleWork = styled.div`
@@ -293,6 +291,21 @@ export const Works = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-left: 80px;
   margin-top: 84px;
+
+  @media (max-width: 1000px) {
+    margin-top: 10px;
+    margin-left: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const CardWork = styled.div`
@@ -300,8 +313,32 @@ export const CardWork = styled.div`
   height: 300px;
   border-radius: 10px;
   background: #666360;
-  margin-left: 40px;
+  margin-left: 30px;
   margin-bottom: 45px;
+
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 600px) {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    background: #b34d4b;
+    margin-left: 30px;
+    margin-bottom: 45px;
+
+    img {
+      width: 250px;
+      height: 250px;
+      border-radius: 10px;
+      margin-top: 5px;
+      margin-left: 10px;
+      margin-bottom: 45px;
+    }
+  }
 `;
 
 export const Unity = styled.div``;

@@ -1,6 +1,10 @@
 import React from 'react';
 import { GiVikingChurch } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import imag1 from '../../assets/1.jpg';
+import imag2 from '../../assets/2.jpg';
+import imag3 from '../../assets/3.jpg';
+import imag4 from '../../assets/4.jpg';
 
 import {
   Container,
@@ -81,21 +85,37 @@ const Landpage: React.FC = () => {
           </TitleWork>
 
           <Works>
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
 
-            <CardWork />
+            <CardWork>
+              <img src={imag1} alt="dale" />
+            </CardWork>
           </Works>
         </WorkContainer>
         <Unity />
