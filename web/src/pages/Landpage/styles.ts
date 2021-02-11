@@ -249,6 +249,17 @@ export const TextPresentation = styled.div`
     width: 100%;
     max-width: 1000px;
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 1000px;
+
+    p {
+      font-size: 25px;
+      padding: 50px;
+      text-align: justify;
+    }
+  }
 `;
 
 export const ImgPresentation = styled.div`
