@@ -14,7 +14,8 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #191919;
+  background: #b34d4b;
+  opacity: 0.9;
 
   width: 100%;
   height: 50px;
@@ -55,6 +56,33 @@ export const VideoWrapper = styled.div`
   height: 100vh;
   overflow: hidden;
   z-index: -1;
+
+  @media (max-width: 1300px) {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 60vh;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  @media (max-width: 1000px) {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 60vh;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 28vh;
+    overflow: hidden;
+    z-index: -1;
+  }
 `;
 
 export const VideoHeader = styled.div`
@@ -62,9 +90,8 @@ export const VideoHeader = styled.div`
     margin: 0;
     padding: 0;
     width: 100%;
-    /* height: 100vh; */
     overflow: hidden;
-    filter: grayscale(95%);
+    filter: grayscale(100%) contrast(2);
   }
 `;
 
@@ -93,6 +120,97 @@ export const VideoText = styled.div`
     color: #b34d4b;
     font-size: 30px;
   }
+
+  @media (max-width: 1300px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    z-index: 1;
+
+    span {
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 60px;
+    }
+
+    hr {
+      margin: 5px 10px;
+      height: 30px;
+    }
+
+    h2 {
+      font-weight: 300;
+      color: #b34d4b;
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+
+    span {
+      transform: scale(0.8);
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 40px;
+    }
+
+    hr {
+      margin: 5px 10px;
+      height: 30px;
+    }
+
+    h2 {
+      font-weight: 300;
+      color: #b34d4b;
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    z-index: 1;
+
+    span {
+      display: none;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    hr {
+      display: none;
+    }
+
+    h2 {
+      font-weight: 300;
+      color: #b34d4b;
+      font-size: 20px;
+    }
+  }
 `;
 
 export const Content = styled.div``;
@@ -102,6 +220,15 @@ export const Presentation = styled.div`
 
   display: flex;
   align-items: stretch;
+
+  @media (max-width: 1000px) {
+    height: 20vh;
+    display: flex;
+  }
+
+  @media (max-width: 600px) {
+    height: 60vh;
+  }
 `;
 
 export const TextPresentation = styled.div`
@@ -117,12 +244,22 @@ export const TextPresentation = styled.div`
     padding: 50px;
     text-align: justify;
   }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    max-width: 1000px;
+  }
 `;
 
 export const ImgPresentation = styled.div`
   flex: 1;
   background: url(${imag}) no-repeat center;
   background-size: cover;
+
+  @media (max-width: 1000px) {
+    display: none;
+    flex: 0;
+  }
 `;
 
 export const WorkContainer = styled.div`

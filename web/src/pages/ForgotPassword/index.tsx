@@ -31,7 +31,6 @@ interface SignInFormData {
 
 const ForgotPassword: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  // const { signInCustomer, signInProvider } = useAuth();
   const [loading, setLoading] = useState(false);
   const { addToast } = useToast();
   const [isCustomer, setISCustomer] = useState(false);

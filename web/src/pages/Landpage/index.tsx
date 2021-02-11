@@ -40,7 +40,9 @@ const Landpage: React.FC = () => {
         </ul>
       </Header>
       <VideoText>
-        <GiVikingChurch size={100} color="#b34d4b" />
+        <span>
+          <GiVikingChurch size={100} color="#b34d4b" />
+        </span>
         <hr />
         <h1>Notre Dame</h1>
         <hr />
