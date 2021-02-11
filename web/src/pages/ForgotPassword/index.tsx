@@ -134,50 +134,54 @@ const ForgotPassword: React.FC = () => {
   );
 
   return (
-    <Container>
+    <>
       <Link to="/">
         <FiArrowLeft color="#fff" size={35} />
       </Link>
-      <Content>
-        <AnimationContainer>
-          <h1>Recuperação de senha</h1>
-          <ButtonContainer>
-            <ButtonProvider
-              onClick={handleLoginProvider}
-              isClickedProvider={isClickedProvider}
+      <Container>
+        <Content>
+          <AnimationContainer>
+            <h1>Recuperação de senha</h1>
+            <ButtonContainer>
+              <ButtonProvider
+                onClick={handleLoginProvider}
+                isClickedProvider={isClickedProvider}
+              >
+                Sou tatuador
+              </ButtonProvider>
+              <ButtonCustomer
+                onClick={handleLoginCustomer}
+                isClickedCustomer={isClickedCustomer}
+              >
+                Sou cliente
+              </ButtonCustomer>
+            </ButtonContainer>
+
+            <Form
+              ref={formRef}
+              onSubmit={
+                isCustomer ? handleSubmitCustomer : handleSubmitProvider
+              }
             >
-              Sou tatuador
-            </ButtonProvider>
-            <ButtonCustomer
-              onClick={handleLoginCustomer}
-              isClickedCustomer={isClickedCustomer}
-            >
-              Sou cliente
-            </ButtonCustomer>
-          </ButtonContainer>
+              <Input
+                type="email"
+                name="email"
+                icon={FiMail}
+                placeholder="E-mail"
+              />
 
-          <Form
-            ref={formRef}
-            onSubmit={isCustomer ? handleSubmitCustomer : handleSubmitProvider}
-          >
-            <Input
-              type="email"
-              name="email"
-              icon={FiMail}
-              placeholder="E-mail"
-            />
+              <Button loading={loading} type="submit">
+                Enviar
+              </Button>
 
-            <Button loading={loading} type="submit">
-              Enviar
-            </Button>
-
-            <Link to="/signin">Voltar para login</Link>
-          </Form>
-          <Link to="/signup">Não tem uma conta?</Link>
-        </AnimationContainer>
-      </Content>
-      <BackgroundIMG />
-    </Container>
+              <Link to="/signin">Voltar para login</Link>
+            </Form>
+            <Link to="/signup">Não tem uma conta?</Link>
+          </AnimationContainer>
+        </Content>
+        <BackgroundIMG />
+      </Container>
+    </>
   );
 };
 

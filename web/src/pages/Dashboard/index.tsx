@@ -4,7 +4,11 @@ import { useAuth } from '../../hooks/Auth';
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
 
-  return <h1> Bem vindo {user.email}</h1>;
+  return (
+    <>
+      <img src={user.avatar_url} alt="dale" />
+    </>
+  );
 };
 
 export default Dashboard;

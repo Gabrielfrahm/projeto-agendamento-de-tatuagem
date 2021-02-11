@@ -52,7 +52,7 @@ export const VideoWrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
+  height: 800px;
   overflow: hidden;
   z-index: -1;
 
@@ -85,10 +85,12 @@ export const VideoWrapper = styled.div`
 `;
 
 export const VideoHeader = styled.div`
+  height: 100%;
   video {
     margin: 0;
     padding: 0;
     width: 100%;
+
     overflow: hidden;
     filter: grayscale(100%) contrast(2);
   }
@@ -312,7 +314,7 @@ export const CardWork = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 10px;
-  background: #666360;
+  background: #b34d4b;
   margin-left: 30px;
   margin-bottom: 45px;
 
@@ -320,6 +322,8 @@ export const CardWork = styled.div`
     width: 300px;
     height: 300px;
     border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
   }
 
   @media (max-width: 600px) {
@@ -341,4 +345,56 @@ export const CardWork = styled.div`
   }
 `;
 
-export const Unity = styled.div``;
+export const ArtistsText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b34d4b;
+  h1 {
+    margin: 16px;
+  }
+`;
+
+export const ArtistsContainer = styled.div``;
+
+export const Artists = styled.div`
+  height: 100vh;
+  width: 100vw;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  background-color: #b34d4b;
+
+  @media (max-width: 600px) {
+    height: 94vh;
+  }
+`;
+
+export const Artist = styled.div`
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    /* margin-bottom: 20px; */
+
+    h2 {
+      font-size: 35px;
+      font-weight: 500;
+      margin: 5px 0;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+`;
+
+export const ArtistImg = styled.div`
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+`;

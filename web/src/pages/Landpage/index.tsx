@@ -1,10 +1,18 @@
 import React from 'react';
 import { GiVikingChurch } from 'react-icons/gi';
+import { FiInstagram, FiFacebook, FiPhone } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import imag1 from '../../assets/1.jpg';
 import imag2 from '../../assets/2.jpg';
 import imag3 from '../../assets/3.jpg';
 import imag4 from '../../assets/4.jpg';
+import imag5 from '../../assets/5.jpeg';
+import imag6 from '../../assets/6.jpeg';
+import imag7 from '../../assets/teste.gif';
+import imag8 from '../../assets/teste2.gif';
+import gui from '../../assets/gui.jpg';
+import yas from '../../assets/yasmin.jpg';
+import yuri from '../../assets/yuri.jpg';
 
 import {
   Container,
@@ -20,7 +28,11 @@ import {
   Works,
   TitleWork,
   CardWork,
-  Unity,
+  ArtistsContainer,
+  ArtistsText,
+  Artists,
+  Artist,
+  ArtistImg,
 } from './styles';
 
 const Landpage: React.FC = () => {
@@ -39,7 +51,7 @@ const Landpage: React.FC = () => {
             <a href="#works">Works</a>
           </li>
           <li>
-            <a href="/">Artists</a>
+            <a href="#artists">Artists</a>
           </li>
         </ul>
       </Header>
@@ -102,23 +114,103 @@ const Landpage: React.FC = () => {
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag5} alt="dale" />
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag6} alt="dale" />
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag7} alt="dale" />
             </CardWork>
 
             <CardWork>
-              <img src={imag1} alt="dale" />
+              <img src={imag8} alt="dale" />
             </CardWork>
           </Works>
         </WorkContainer>
-        <Unity />
+
+        <ArtistsText id="artists">
+          <h1>Artistas</h1>
+        </ArtistsText>
+
+        <ArtistsContainer>
+          <Artists>
+            <Artist>
+              <ArtistImg>
+                <img src={gui} alt="dale" />
+                <a href="https://www.instagram.com/rip_gui/" target="blank">
+                  <FiInstagram size={25} color="#fff" />
+                </a>
+                <a href="https://www.facebook.com/SKAZI.18" target="blank">
+                  <FiFacebook size={25} color="#fff" />
+                </a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=551998999-4190&text= Ola Guilherme!, Gostaria de fazer um orçamento"
+                  target="blank"
+                >
+                  <FiPhone size={25} color="#fff" />
+                </a>
+                <h2>Guilherme Oliveira</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                </p>
+              </ArtistImg>
+            </Artist>
+            <Artist>
+              <ArtistImg>
+                <img src={yas} alt="dale" />
+                <a href="https://www.instagram.com/_limite._/" target="blank">
+                  <FiInstagram size={25} color="#fff" />
+                </a>
+                <a href="https://www.facebook.com/yasmin.boer" target="blank">
+                  <FiFacebook size={25} color="#fff" />
+                </a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=551999977-8220&text= Ola Yasmin!, Gostaria de fazer um orçamento"
+                  target="blank"
+                >
+                  <FiPhone size={25} color="#fff" />
+                </a>
+                <h2>Yasmin Boer</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                </p>
+              </ArtistImg>
+            </Artist>
+            <Artist>
+              <ArtistImg>
+                <img src={yuri} alt="dale" />
+                <a
+                  href="https://www.instagram.com/Yuriferreira.ink/?fbclid=IwAR1CbAoV01YVeT_BWBC8sOwarSdEZEK3UqvU6_ZOyNjVd7rHHElQsdLn1Jo"
+                  target="blank"
+                >
+                  <FiInstagram size={25} color="#fff" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100025007539049"
+                  target="blank"
+                >
+                  <FiFacebook size={25} color="#fff" />
+                </a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=551999487-1958&text= Ola Yuri!, Gostaria de fazer um orçamento"
+                  target="blank"
+                >
+                  <FiPhone size={25} color="#fff" />
+                </a>
+                <h2>Yuri Ferreira</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                </p>
+              </ArtistImg>
+            </Artist>
+          </Artists>
+        </ArtistsContainer>
       </Content>
     </Container>
   );

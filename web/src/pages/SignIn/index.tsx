@@ -121,55 +121,59 @@ const SignIn: React.FC = () => {
   );
 
   return (
-    <Container>
+    <>
       <Link to="/">
         <FiArrowLeft color="#fff" size={35} />
       </Link>
-      <Content>
-        <AnimationContainer>
-          <h1>Faça seu login</h1>
-          <ButtonContainer>
-            <ButtonProvider
-              onClick={handleLoginProvider}
-              isClickedProvider={isClickedProvider}
+      <Container>
+        <Content>
+          <AnimationContainer>
+            <h1>Faça seu login</h1>
+            <ButtonContainer>
+              <ButtonProvider
+                onClick={handleLoginProvider}
+                isClickedProvider={isClickedProvider}
+              >
+                Sou tatuador
+              </ButtonProvider>
+              <ButtonCustomer
+                onClick={handleLoginCustomer}
+                isClickedCustomer={isClickedCustomer}
+              >
+                Sou cliente
+              </ButtonCustomer>
+            </ButtonContainer>
+
+            <Form
+              ref={formRef}
+              onSubmit={
+                isCustomer ? handleSubmitCustomer : handleSubmitProvider
+              }
             >
-              Sou tatuador
-            </ButtonProvider>
-            <ButtonCustomer
-              onClick={handleLoginCustomer}
-              isClickedCustomer={isClickedCustomer}
-            >
-              Sou cliente
-            </ButtonCustomer>
-          </ButtonContainer>
+              <Input
+                type="email"
+                name="email"
+                icon={FiMail}
+                placeholder="E-mail"
+              />
 
-          <Form
-            ref={formRef}
-            onSubmit={isCustomer ? handleSubmitCustomer : handleSubmitProvider}
-          >
-            <Input
-              type="email"
-              name="email"
-              icon={FiMail}
-              placeholder="E-mail"
-            />
+              <Input
+                name="password"
+                icon={FiLock}
+                type="password"
+                placeholder="Senha"
+              />
 
-            <Input
-              name="password"
-              icon={FiLock}
-              type="password"
-              placeholder="Senha"
-            />
+              <Button type="submit">Entrar</Button>
 
-            <Button type="submit">Entrar</Button>
-
-            <Link to="/forgot-password">Esqueceu a senha?</Link>
-          </Form>
-          <Link to="/signup">Não tem uma conta?</Link>
-        </AnimationContainer>
-      </Content>
-      <BackgroundIMG />
-    </Container>
+              <Link to="/forgot-password">Esqueceu a senha?</Link>
+            </Form>
+            <Link to="/signup">Não tem uma conta?</Link>
+          </AnimationContainer>
+        </Content>
+        <BackgroundIMG />
+      </Container>
+    </>
   );
 };
 
