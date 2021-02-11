@@ -375,7 +375,7 @@ export const Artist = styled.div`
   @media (max-width: 600px) {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    padding: 25px;
     /* margin-bottom: 20px; */
 
     h2 {
