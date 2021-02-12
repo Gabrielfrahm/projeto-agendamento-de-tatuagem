@@ -1,21 +1,17 @@
 import React from 'react';
 import { FiPower } from 'react-icons/fi';
-import { GiVikingChurch } from 'react-icons/gi';
+// import { GiVikingChurch } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/Auth';
 import { Container, Content, Header, HeaderContent, Profile } from './styles';
 
-const Dashboard: React.FC = () => {
+const DashboardCustomer: React.FC = () => {
   const { user, signOut } = useAuth();
 
   return (
     <Container>
       <Header>
         <HeaderContent>
-          <span>
-            <GiVikingChurch size={50} color="#b34d4b" />
-          </span>
-
           <Profile>
             <img src={user.avatar_url} alt={user.name} />
             <div>
@@ -37,4 +33,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardCustomer;

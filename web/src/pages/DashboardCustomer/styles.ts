@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Header = styled.header`
-  padding: 32px 0;
+  padding: 25px 0;
   background: #201e1e;
+
   @media (max-width: 600px) {
     padding: 20px 0;
     background: #201e1e;
@@ -17,10 +18,20 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 600px) {
-    span {
-      display: none;
+  @media (max-width: 1000px) {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    button {
+      margin-right: 20px;
     }
+  }
+
+  @media (max-width: 600px) {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
 
     button {
       margin-right: 20px;
@@ -44,10 +55,19 @@ export const Profile = styled.div`
   display: flex;
   align-items: center;
   margin-left: 20px;
+
   img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+  }
+
+  @media (max-width: 600px) {
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
   }
 
   div {
