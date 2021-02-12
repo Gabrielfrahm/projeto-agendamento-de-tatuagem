@@ -52,7 +52,7 @@ export const VideoWrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   overflow: hidden;
   z-index: -1;
 
@@ -60,7 +60,7 @@ export const VideoWrapper = styled.div`
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 60vh;
+    /* height: 60vh; */
     overflow: hidden;
     z-index: -1;
   }
@@ -69,7 +69,7 @@ export const VideoWrapper = styled.div`
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 60vh;
+    /* height: 60vh; */
     overflow: hidden;
     z-index: -1;
   }
@@ -78,7 +78,7 @@ export const VideoWrapper = styled.div`
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 28vh;
+    /* height: 28vh; */
     overflow: hidden;
     z-index: -1;
   }
@@ -101,6 +101,7 @@ export const VideoText = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   align-items: center;
   position: absolute;
   z-index: 1;
@@ -213,21 +214,21 @@ export const VideoText = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  overflow: hidden;
+`;
 
 export const Presentation = styled.div`
-  height: 100vh;
-
   display: flex;
   align-items: stretch;
+  height: 100vh;
 
   @media (max-width: 1000px) {
-    height: 20vh;
-    display: flex;
+    height: 100vh;
   }
 
   @media (max-width: 600px) {
-    height: 60vh;
+    height: 100vh;
   }
 `;
 
@@ -268,12 +269,12 @@ export const ImgPresentation = styled.div`
 
   @media (max-width: 1000px) {
     display: none;
-    flex: 0;
   }
 `;
 
 export const WorkContainer = styled.div`
   /* height: 100vh; */
+  overflow: hidden;
 `;
 
 export const TitleWork = styled.div`
@@ -292,6 +293,13 @@ export const Works = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-left: 80px;
   margin-top: 84px;
+
+  @media (max-width: 1360px) {
+    margin-top: 10px;
+    margin-left: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
   @media (max-width: 1000px) {
     margin-top: 10px;
@@ -357,7 +365,7 @@ export const ArtistsText = styled.div`
 export const ArtistsContainer = styled.div``;
 
 export const Artists = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
 
   background-color: #b34d4b;
 
