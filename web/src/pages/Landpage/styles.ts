@@ -91,7 +91,7 @@ export const VideoHeader = styled.div`
     width: 100%;
 
     overflow: hidden;
-    filter: grayscale(100%) contrast(2);
+    filter: grayscale(100%);
   }
 `;
 
@@ -359,9 +359,6 @@ export const ArtistsContainer = styled.div``;
 export const Artists = styled.div`
   height: 100vh;
 
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   background-color: #b34d4b;
 
   @media (max-width: 600px) {
@@ -371,18 +368,18 @@ export const Artists = styled.div`
 export const Artist = styled.div`
   @media (max-width: 600px) {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 25px;
     /* margin-bottom: 20px; */
 
     h2 {
-      font-size: 35px;
+      font-size: 20px;
       font-weight: 500;
       margin: 5px 0;
     }
 
     p {
-      font-size: 20px;
+      font-size: 15px;
       font-weight: 300;
     }
   }
