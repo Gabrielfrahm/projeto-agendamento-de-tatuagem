@@ -69,7 +69,7 @@ const Landpage: React.FC = () => {
         <VideoHeader>
           <video autoPlay loop muted>
             <track kind="captions" />
-            <source src="/videos/Meu Vídeo.mp4" type="video/webm" />
+            <source src="/videos/Meu Vídeo.mp4" type="video/mp4" />
           </video>
         </VideoHeader>
       </VideoWrapper>
