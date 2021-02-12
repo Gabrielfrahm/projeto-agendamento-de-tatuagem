@@ -7,8 +7,7 @@ export const Header = styled.header`
   background: #201e1e;
 
   @media (max-width: 600px) {
-    padding: 20px 0;
-    background: #201e1e;
+    padding: 30px 0;
   }
 `;
 
@@ -17,26 +16,6 @@ export const HeaderContent = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
-
-  @media (max-width: 1000px) {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-
-    button {
-      margin-right: 20px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-
-    button {
-      margin-right: 20px;
-    }
-  }
 
   button {
     margin-left: auto;
@@ -47,6 +26,16 @@ export const HeaderContent = styled.div`
       color: #999591;
       width: 20px;
       height: 20px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    button {
+      margin-right: 20px;
     }
   }
 `;
@@ -64,8 +53,8 @@ export const Profile = styled.div`
 
   @media (max-width: 600px) {
     img {
-      width: 50px;
-      height: 50px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
     }
   }
