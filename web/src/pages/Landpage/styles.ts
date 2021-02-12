@@ -366,6 +366,43 @@ export const Artists = styled.div`
 `;
 
 export const Artist = styled.div`
+  display: flex;
+  /* justify-content: space-between; */
+  padding: 55px;
+  /* margin-bottom: 20px; */
+  background: ${shade(0.2, '#b34d4b')};
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 35px;
+    font-weight: 500;
+    margin: 5px 0;
+  }
+
+  p {
+    font-size: 25px;
+    font-weight: 300;
+  }
+
+  @media (max-width: 1000px) {
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 50px;
+    /* margin-bottom: 20px; */
+    margin-bottom: 0;
+    background: transparent;
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+      margin: 5px 0;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+
   @media (max-width: 600px) {
     display: flex;
     /* justify-content: space-between; */
