@@ -15,6 +15,7 @@
     "axios": "^0.21.1",
     "polished": "^4.0.4",
     "react": "^17.0.1",
+    "react-day-picker": "^7.4.8",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
