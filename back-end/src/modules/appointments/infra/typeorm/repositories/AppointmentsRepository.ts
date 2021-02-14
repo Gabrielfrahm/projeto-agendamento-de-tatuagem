@@ -26,6 +26,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
 
   public async findAllInDayFromProvider({
     provider_id,
+    // customer_id,
     day,
     month,
     year,

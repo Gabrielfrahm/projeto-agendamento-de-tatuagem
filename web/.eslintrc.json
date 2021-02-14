@@ -41,6 +41,8 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
+    "import/no-duplicates": "off",
+
     "prettier/prettier": "error",
 
     "@typescript-eslint/explicit-function-return-type": [

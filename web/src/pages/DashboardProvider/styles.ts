@@ -393,7 +393,7 @@ export const Calender = styled.aside`
   }
 
   .DayPicker-Day--selected {
-    background: #b34d4b !important;
+    background: ${shade(0.5, '#b34d4b')} !important;
     border-radius: 10px;
     color: #232129 !important;
   }
