@@ -29,11 +29,8 @@ interface Appointment {
   id: string;
   date: string;
   hourFormatted: string;
-  provider: {
-    name: string;
-    avatar_url: string;
-  };
-  customer_id: {
+
+  customer: {
     name: string;
     avatar_url: string;
   };
@@ -173,10 +170,10 @@ const DashboardProvider: React.FC = () => {
               <strong>Cliente a seguir</strong>
               <div>
                 <img
-                  src={nextAppointment?.customer_id.avatar_url}
-                  alt={nextAppointment.customer_id.name}
+                  src={nextAppointment?.customer.avatar_url}
+                  alt={nextAppointment.customer.name}
                 />
-                <strong>{nextAppointment.customer_id.name}</strong>
+                <strong>{nextAppointment.customer.name}</strong>
                 <span>
                   <FiClock />
                   {nextAppointment.hourFormatted}
@@ -196,11 +193,11 @@ const DashboardProvider: React.FC = () => {
               <Appointment>
                 <div>
                   <img
-                    src={appointment.customer_id.avatar_url}
-                    alt={appointment.customer_id.name}
+                    src={appointment.customer.avatar_url}
+                    alt={appointment.customer.name}
                   />
 
-                  <strong>{appointment.customer_id.name}</strong>
+                  <strong>{appointment.customer.name}</strong>
                   <span>
                     <FiClock />
                     {appointment.hourFormatted}
@@ -220,11 +217,11 @@ const DashboardProvider: React.FC = () => {
               <Appointment>
                 <div>
                   <img
-                    src={appointment.customer_id.avatar_url}
-                    alt={appointment.customer_id.name}
+                    src={appointment.customer.avatar_url}
+                    alt={appointment.customer.name}
                   />
 
-                  <strong>{appointment.customer_id.name}</strong>
+                  <strong>{appointment.customer.name}</strong>
                   <span>
                     <FiClock />
                     {appointment.hourFormatted}
