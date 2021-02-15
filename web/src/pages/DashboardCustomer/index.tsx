@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { FiCalendar, FiPower } from 'react-icons/fi';
 import { IoLogoWhatsapp } from 'react-icons/io';
 import { Link, useHistory } from 'react-router-dom';
-import Button from '../../components/Button';
 import { useAuth } from '../../hooks/Auth';
 import api from '../../services/api';
 import {
