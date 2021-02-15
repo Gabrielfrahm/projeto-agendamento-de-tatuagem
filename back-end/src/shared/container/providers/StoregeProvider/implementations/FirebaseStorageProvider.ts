@@ -30,7 +30,7 @@ export default class FirebaseStorageProvider implements IStorageProvider {
     const originalPath = path.resolve(uploadConfig.tmpFolder, file);
 
     // redimensionar a imagem
-    await sharp(originalPath).resize(300, 500).toFile(file);
+    await sharp(originalPath).resize(500, 500).toFile(file);
 
     const contentType = mime.getType(file);
 

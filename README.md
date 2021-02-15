@@ -46,12 +46,12 @@
   - [x] ✔ Cadastro de agendamento (finalizado no back-end)
   - [x] ✔ listar todos agendamento do dia para o tatuador (finalizado no back-end)
   - [x] ✔ listar agendamento disponível  do mes do tatuador (finalizado no back-end)
-  - [ ] listar agendamento disponível do dia do tatuador
+  - [X] ✔ listar agendamento disponível do dia do tatuador
   - [x] ✔ listar todos os tatuadores (finalizado no back-end)
   - [x] ✔ Provedor de email
   - [x] ✔ Provedor de storage (firebase)
-  - [ ] Painel tatuador 
-  - [ ] Painel cliente
+  - [x] ✔ Painel tatuador 
+  - [x] ✔ Painel cliente
   - [ ] implementação cache
   - [ ] implementação notificações
   - [ ] implementação TDD (Eu sei deveria fazer junto com os services, porem decidir foca na logica primeiro [isso nao é uma boa pratica!])
