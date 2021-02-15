@@ -9,6 +9,8 @@ import DashboardCustomer from '../pages/DashboardCustomer';
 import DashboardProvider from '../pages/DashboardProvider';
 import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
+import ProfileCustomer from '../pages/ProfileCustomer';
+import ProfileProvider from '../pages/ProfileProvider';
 
 const Routes: React.FC = () => {
   return (
@@ -29,6 +31,9 @@ const Routes: React.FC = () => {
         isPrivate
         component={DashboardProvider}
       />
+
+      <Route path="/customers/profile" isPrivate component={ProfileCustomer} />
+      <Route path="/providers/profile" isPrivate component={ProfileProvider} />
     </Switch>
   );
 };

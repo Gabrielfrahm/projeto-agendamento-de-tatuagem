@@ -146,7 +146,7 @@ const DashboardProvider: React.FC = () => {
             <img src={user.avatar_url} alt={user.name} />
             <div>
               <p>Bem-Vindo</p>
-              <Link to="/profile">
+              <Link to="/providers/profile">
                 <strong>{user.name}</strong>
               </Link>
             </div>
