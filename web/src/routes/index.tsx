@@ -12,6 +12,8 @@ import ResetPassword from '../pages/ResetPassword';
 import ProfileCustomer from '../pages/ProfileCustomer';
 import ProfileProvider from '../pages/ProfileProvider';
 
+import CreateAppointment from '../pages/CreateAppointment';
+
 const Routes: React.FC = () => {
   return (
     <Switch>
@@ -26,6 +28,13 @@ const Routes: React.FC = () => {
         isPrivate
         component={DashboardCustomer}
       />
+
+      <Route
+        path="/createAppointment"
+        isPrivate
+        component={CreateAppointment}
+      />
+
       <Route
         path="/dashboardProvider"
         isPrivate
